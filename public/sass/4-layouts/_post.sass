@@ -1,3 +1,36 @@
 
+@use '../1-helpers/1-helper' as help
+
 .post
-    width: 100px
+    width: 100%
+    padding: 20px 50px
+    
+    &__text
+        margin-bottom: 15px
+
+    &__img > img
+        height: 400px
+        width: 70%
+        object-fit: contain 
+        display: block
+        margin: 0 auto
+
+    &__time 
+        width: 40%
+        margin-top: 10px
+        display: inline-flex
+        color: help.$text-grey
+        margin-right: auto
+
+        > * 
+            margin-right: 10px
+
+
+
+@include help.media-mob
+    .post 
+        padding: 10px
+        &__text 
+            margin-bottom: 9px
+    
+

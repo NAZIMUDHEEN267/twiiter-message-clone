@@ -1,5 +1,5 @@
 
-@use '../1-helpers/variables' as var
+@use '../1-helpers/mixins' as mixin
 
 
 // ======== font families 
@@ -7,5 +7,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Dongle:wght@300&family=Lato&display=swap')
 @import url('https://fonts.googleapis.com/css2?family=Lato&family=Roboto&display=swap')
 
+// header font
 .header 
     font-family: 'Roboto', sanserif
+
+// post font
+.post 
+    font-family: 'Dongle', sanserif
+    font-size: 28px
+    line-height: 17px
+
+@include mixin.media-tab
+    .post 
+        &__text
+            font-size: 20px
+            &__time 
+                width: 10px
+            > * 
+                margin-right: 5px
+
+@include mixin.media-mob
+    .post__text
+        padding: 5px
