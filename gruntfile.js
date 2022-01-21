@@ -6,8 +6,8 @@ module.exports = function (grunt) {
         files: [
           {
             expand: true,
-            cwd: "public/sass",
-            src: ["*.scss"],
+            cwd: "public/sass/5-pages/",
+            src: ["*.sass"],
             dest: "public/css",
             ext: ".css",
           },
@@ -64,7 +64,7 @@ module.exports = function (grunt) {
         tasks: ["uglify"],
       },
       sass: {
-        files: ["public/sass/*.scss"],
+        files: ["public/sass/5-pages/*.sass"],
         tasks: ["sass"],
       },
       eslint: {
@@ -82,7 +82,7 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks("grunt-eslint");
 
   // register task to grunt
-  grunt.registerTask("watching", [
+  grunt.registerTask("default", [
     "watch:cssmin",
     "watch:uglify",
     "watch:sass",

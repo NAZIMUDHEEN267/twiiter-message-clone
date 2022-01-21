@@ -1,1 +1,0 @@
-function nam(n){console.log(n)}nam("hello");

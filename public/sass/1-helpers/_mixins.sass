@@ -1,0 +1,21 @@
+
+@use './variables' as var
+
+
+// media queries 
+
+@mixin media-desk 
+    @media (min-width: var.$desktop)
+        @content
+
+@mixin media-lap 
+    @media (min-width: var.$laptop)
+        @content
+
+@mixin media-tab 
+    @media (min-width: var.$tablet)
+        @content
+
+@mixin media-mob 
+    @media (min-width: var.$mobile)
+        @content

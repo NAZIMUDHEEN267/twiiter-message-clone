@@ -1,6 +1,10 @@
 const express = require("express");
 const app = express();
-const router = require("./router/router");
+
+// router path
+const login = require("./router/login");
+const comment = require('./router/comment');
+const signIn = require('./router/sign-in');
 
 const port = process.env.PORT || 3000;
 
@@ -12,16 +16,10 @@ app.set("view engine", "pug");
 app.set("views", `${__dirname}/view`);
 
 // router
-app.use("/", router);
+app.use("/", login);
+app.use('/', signIn);
+app.use('/', comment);
 
-// route
-app
-  .route("/login")
-  .get((req, res) => {
-    res.render("login");
-  })
-  .post((req, res) => {
-    res.render("comment");
-  });
-
-app.listen(port);
+app.listen(port, () => {
+    console.log('connected');
+});

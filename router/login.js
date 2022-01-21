@@ -2,8 +2,11 @@ const express = require('express');
 const router = express.Router();
 
 router.get('/login', (req, res) => {
-  res.json('nachu', 'another nachu');
+  res.render('login')
 });
 
+router.post('/login', (req,res) => {
+  res.render('comment');
+})
 
 module.exports = router;

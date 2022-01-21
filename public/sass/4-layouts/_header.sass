@@ -1,0 +1,41 @@
+
+@use '../1-helpers/1-helper' as help
+@use 'sass:math' 
+
+// ============== header ==============
+
+.header 
+    height: 180px
+    background-color: red 
+    width: 100%
+
+    .sign-bar 
+        background-color: help.$white
+
+        &__container
+            display: flex
+            align-items: center
+            justify-content: center
+            width: calc(100% / 2)
+            height: 80px
+            margin: auto
+
+            %user-btn
+                width: calc(90% / 2)
+                padding: help.padding(10, 20, 1)
+                border: none
+                border-radius: 30px
+                cursor: pointer
+                font-weight: 600
+            
+            .login-cta 
+                @extend %user-btn
+                color: help.$primary
+                background-color: help.$white
+                border: 1px solid help.$text-grey
+                margin-right: 10px
+
+            .sign-in-cta 
+                @extend %user-btn
+                color: help.$white
+                background-color: help.$primary

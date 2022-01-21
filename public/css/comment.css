@@ -1,0 +1,77 @@
+*, *::after, *::before {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+html {
+  font-size: 100%;
+}
+
+body {
+  background: #fff;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+.login-link {
+  color: #0878a1;
+}
+
+.sign-link {
+  color: #fff;
+}
+
+@font-face {
+  font-family: "Dongle", sanserif;
+  src: url("https://fonts.googleapis.com/css2?family=Dongle:wght@300&family=Lato&display=swap");
+}
+@font-face {
+  font-family: "Roboto", sanserif;
+  src: url("https://fonts.googleapis.com/css2?family=Lato&family=Roboto&display=swap");
+}
+.header {
+  font-family: "Dongle", sanserif;
+}
+
+.header {
+  height: 180px;
+  background-color: red;
+  width: 100%;
+}
+.header .sign-bar {
+  background-color: #fff;
+}
+.header .sign-bar__container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  height: 80px;
+  margin: auto;
+}
+.header .sign-bar__container .sign-in-cta, .header .sign-bar__container .login-cta {
+  width: 45%;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: 600;
+}
+.header .sign-bar__container .login-cta {
+  color: #0878a1;
+  background-color: #fff;
+  border: 1px solid #999090;
+  margin-right: 10px;
+}
+.header .sign-bar__container .sign-in-cta {
+  color: #fff;
+  background-color: #0878a1;
+}
+
+/*# sourceMappingURL=comment.css.map */
