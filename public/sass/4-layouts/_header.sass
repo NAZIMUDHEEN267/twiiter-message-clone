@@ -7,7 +7,7 @@
 
 .header 
     width: 100%
-    padding: 10px
+    padding: help.padding(10, false, 1)
 
     // sign links 
 
@@ -23,11 +23,10 @@
             margin: auto
     
     // user bar
-
     .user 
         height: 100px 
         margin: 0 5px
-        padding: 0 5px
+        padding: help.padding(0, 5, 1)
         display: flex
         justify-content: space-between 
         position: relative
@@ -52,38 +51,74 @@
                 .id 
                     font-size: .9rem
                     color: help.$text-grey 
-        .menu
+        
+        // menu dots
+        .menu-btn
             align-self: center 
             font-size: 1.5rem
             cursor: pointer 
 
             i 
-              padding: 15px
+              padding: help.padding(15, false, 1)
               border-radius: 50% 
+
             &:hover i
                     background: lighten(help.$primary, 60)
                     color: lighten(help.$primary, 10)
 
-        .menu-click
+        // menu-click will be hidden after user click the menu button it will show up
+        .menu
             position: absolute
             background: help.$white
             box-shadow: 0px 3px 10px rgba(help.$black, .2)
-            padding: 12px
             right: 10px
             top: 45px
             border-radius: 5px
+            display: none
+            z-index: 2 
             
             li 
-                padding: 10px 5px
+                padding: help.padding(12, 15, 1)
                 color: help.$text-grey
+                cursor: pointer
 
                 i 
                     margin-right: 10px
+
+                &:hover 
+                    background: lighten(help.$black, 97)
     
             p 
                 display: inline
                 font-weight: 100
-                 
+
+  
+
+    // overlay class for click event (javascript)
+
+    .overlay
+        position: absolute
+        top: 0
+        left: 0
+        height: 100vh
+        width: 100%
+        background: rgba(help.$black, .01) 
+        cursor: pointer
+        z-index: 1    
 
 
+
+    // media-queries 
+    @include help.media-tab 
+        .user 
+            .user__img > img 
+                height: 60px 
+                width: 60px
+            .user__name
+                .name 
+                    font-size: medium 
+                .id 
+                    font-size: small
+            .menu 
+                font-size: 1.2rem 
 

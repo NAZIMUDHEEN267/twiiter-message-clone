@@ -1,3 +1,7 @@
 
 @function padding($val, $val2, $mul)
-    @return (($val * $mul) * 1px ($val2 * $mul) * 1px)
+    @if $val2 == false
+        @return $val * $mul * 1px
+    @else 
+        @return (($val * $mul) * 1px ($val2 * $mul) * 1px)
+    

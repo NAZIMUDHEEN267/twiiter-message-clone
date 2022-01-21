@@ -9,7 +9,7 @@ html(lang="en")
         title Document
     body  
         //- header section 
-        header.header
+        header.header#js-header
          .sign-bar 
             .sign-bar__container 
              button.login-cta.login-cta_color
@@ -19,18 +19,25 @@ html(lang="en")
          .user
           .user__details
             .user__img
-              img(src="Assets/profile.jpg", alt="profile.jpg" width="200px") 
+              img(src="Assets/profile.jpg", alt="profile.jpg") 
             .user__name 
               h3.name cristiano ronaldo 
               h4.id @Cristiano
-          .menu 
+          .menu-btn#js-menu-btn
             i.fas.fa-ellipsis-h
-          .menu-click 
+          .menu#js-menu 
             li 
               i.fas.fa-code 
               p Embed Tweet
             li 
               i.far.fa-address-card
               p View hidden replies
-            //- "There is no harm in dreaming of becoming the world's best player. It is all about trying to be the best. I will keep working hard to achieve it but it is within my capabilities.
+
+        section.post 
+          .post__text
+            | There is no harm in dreaming of becoming the world's best player. It is all about trying to be the best. I will keep working hard to achieve it but it is within my capabilities.
+          .post__img
+            img(src="Assets/post.jpeg", alt="post.jpg")
+
+            
         script(src="javascript/js-min/main.js")

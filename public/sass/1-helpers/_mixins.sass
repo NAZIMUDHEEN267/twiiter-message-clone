@@ -5,17 +5,17 @@
 // media queries 
 
 @mixin media-desk 
-    @media (min-width: var.$desktop)
+    @media (max-width: var.$desktop)
         @content
 
 @mixin media-lap 
-    @media (min-width: var.$laptop)
+    @media (max-width: var.$laptop)
         @content
 
 @mixin media-tab 
-    @media (min-width: var.$tablet)
+    @media (max-width: var.$tablet)
         @content
 
 @mixin media-mob 
-    @media (min-width: var.$mobile)
+    @media (max-width: var.$mobile)
         @content

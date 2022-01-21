@@ -41,6 +41,12 @@ li {
   cursor: pointer;
   font-weight: 600;
 }
+@media (max-width: 440px) {
+  .sign-in-cta, .login-cta {
+    padding: 5px 10px;
+    font-size: 12px;
+  }
+}
 
 .login-cta {
   color: #0878a1;
@@ -93,7 +99,7 @@ li {
 .header .user {
   height: 100px;
   margin: 0 5px;
-  padding: 0 5px;
+  padding: 0px 5px;
   display: flex;
   justify-content: space-between;
   position: relative;
@@ -120,38 +126,72 @@ li {
   font-size: 0.9rem;
   color: #635f5f;
 }
-.header .user .menu {
+.header .user .menu-btn {
   align-self: center;
   font-size: 1.5rem;
   cursor: pointer;
 }
-.header .user .menu i {
+.header .user .menu-btn i {
   padding: 15px;
   border-radius: 50%;
 }
-.header .user .menu:hover i {
+.header .user .menu-btn:hover i {
   background: #def5fd;
   color: #0a9cd2;
 }
-.header .user .menu-click {
+.header .user .menu {
   position: absolute;
   background: #fff;
   box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
-  padding: 12px;
   right: 10px;
   top: 45px;
   border-radius: 5px;
+  display: none;
+  z-index: 2;
 }
-.header .user .menu-click li {
-  padding: 10px 5px;
+.header .user .menu li {
+  padding: 12px 15px;
   color: #635f5f;
+  cursor: pointer;
 }
-.header .user .menu-click li i {
+.header .user .menu li i {
   margin-right: 10px;
 }
-.header .user .menu-click p {
+.header .user .menu li:hover {
+  background: #f7f7f7;
+}
+.header .user .menu p {
   display: inline;
   font-weight: 100;
+}
+.header .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.01);
+  cursor: pointer;
+  z-index: 1;
+}
+@media (max-width: 768px) {
+  .header .user .user__img > img {
+    height: 60px;
+    width: 60px;
+  }
+  .header .user .user__name .name {
+    font-size: medium;
+  }
+  .header .user .user__name .id {
+    font-size: small;
+  }
+  .header .user .menu {
+    font-size: 1.2rem;
+  }
+}
+
+.post {
+  width: 100px;
 }
 
 /*# sourceMappingURL=comment.css.map */

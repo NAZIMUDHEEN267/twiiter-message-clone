@@ -1,1 +1,1 @@
-console.log("nahcu");
+const menuBtn=document.getElementById("js-menu-btn"),menu=document.getElementById("js-menu"),body=document.querySelector("body");menuBtn.addEventListener("click",()=>{menu.style.display="block"}),document.querySelector(".overla").addEventListener("click",()=>{console.log("clicked"),menu.style.display="none"});
