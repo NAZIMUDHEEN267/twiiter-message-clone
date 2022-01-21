@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Dongle:wght@300&family=Lato&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato&family=Roboto&display=swap");
 *, *::after, *::before {
   box-sizing: border-box;
   margin: 0;
@@ -19,6 +21,10 @@ li {
   list-style: none;
 }
 
+.header {
+  font-family: "Roboto", sanserif;
+}
+
 .login-link {
   color: #0878a1;
 }
@@ -27,22 +33,51 @@ li {
   color: #fff;
 }
 
-@font-face {
-  font-family: "Dongle", sanserif;
-  src: url("https://fonts.googleapis.com/css2?family=Dongle:wght@300&family=Lato&display=swap");
+.sign-in-cta, .login-cta {
+  width: 45%;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: 600;
 }
-@font-face {
-  font-family: "Roboto", sanserif;
-  src: url("https://fonts.googleapis.com/css2?family=Lato&family=Roboto&display=swap");
+
+.login-cta {
+  color: #0878a1;
+  background-color: #fff;
+  border: 1px solid #635f5f;
+  margin-right: 10px;
 }
-.header {
-  font-family: "Dongle", sanserif;
+.login-cta:hover .login-link {
+  color: #fff;
+}
+
+.login-cta_color {
+  transition: ease-in 0.2s 0.2s;
+}
+.login-cta_color:hover {
+  background-color: #1bbaf4;
+}
+
+.sign-in-cta {
+  color: #fff;
+  background-color: #0878a1;
+}
+.sign-in-cta:hover .sign-link {
+  color: #0878a1;
+}
+
+.sign-in-cta_color {
+  transition: ease-in 0.2s 0.2s;
+}
+.sign-in-cta_color:hover {
+  background-color: #fff;
+  border: 1px solid #0878a1;
 }
 
 .header {
-  height: 180px;
-  background-color: red;
   width: 100%;
+  padding: 10px;
 }
 .header .sign-bar {
   background-color: #fff;
@@ -55,23 +90,68 @@ li {
   height: 80px;
   margin: auto;
 }
-.header .sign-bar__container .sign-in-cta, .header .sign-bar__container .login-cta {
-  width: 45%;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 30px;
-  cursor: pointer;
-  font-weight: 600;
+.header .user {
+  height: 100px;
+  margin: 0 5px;
+  padding: 0 5px;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
 }
-.header .sign-bar__container .login-cta {
-  color: #0878a1;
-  background-color: #fff;
-  border: 1px solid #999090;
+.header .user__details {
+  display: flex;
+  align-items: center;
+  margin-right: auto;
+}
+.header .user__details .user__img > img {
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.header .user__details .user__name {
+  margin-left: 10px;
+  text-transform: capitalize;
+}
+.header .user__details .user__name .name, .header .user__details .user__name .id {
+  font-weight: 500;
+}
+.header .user__details .user__name .id {
+  font-size: 0.9rem;
+  color: #635f5f;
+}
+.header .user .menu {
+  align-self: center;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+.header .user .menu i {
+  padding: 15px;
+  border-radius: 50%;
+}
+.header .user .menu:hover i {
+  background: #def5fd;
+  color: #0a9cd2;
+}
+.header .user .menu-click {
+  position: absolute;
+  background: #fff;
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
+  padding: 12px;
+  right: 10px;
+  top: 45px;
+  border-radius: 5px;
+}
+.header .user .menu-click li {
+  padding: 10px 5px;
+  color: #635f5f;
+}
+.header .user .menu-click li i {
   margin-right: 10px;
 }
-.header .sign-bar__container .sign-in-cta {
-  color: #fff;
-  background-color: #0878a1;
+.header .user .menu-click p {
+  display: inline;
+  font-weight: 100;
 }
 
 /*# sourceMappingURL=comment.css.map */

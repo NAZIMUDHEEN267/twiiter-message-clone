@@ -14,15 +14,23 @@ html(lang="en")
             .sign-bar__container 
              button.login-cta.login-cta_color
               a(href="#" class="login-link") Log in 
-             button.sign-in-cta.sign-in-cta-color 
+             button.sign-in-cta.sign-in-cta_color 
               a(href="#" class="sign-link") Sign up 
          .user
-          .user__img
-            img(src="Assets/profile.jpg", alt="profile.jpg" width="200px") 
-          .user__details 
-            h3 cristiano ronaldo 
-            h4 @Cristiano
-         .menu 
+          .user__details
+            .user__img
+              img(src="Assets/profile.jpg", alt="profile.jpg" width="200px") 
+            .user__name 
+              h3.name cristiano ronaldo 
+              h4.id @Cristiano
+          .menu 
             i.fas.fa-ellipsis-h
+          .menu-click 
+            li 
+              i.fas.fa-code 
+              p Embed Tweet
+            li 
+              i.far.fa-address-card
+              p View hidden replies
             //- "There is no harm in dreaming of becoming the world's best player. It is all about trying to be the best. I will keep working hard to achieve it but it is within my capabilities.
         script(src="javascript/js-min/main.js")
