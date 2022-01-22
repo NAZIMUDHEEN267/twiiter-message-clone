@@ -17,15 +17,15 @@
     font-size: 28px
     line-height: 17px
 
+// aside section 
+.side 
+    font-family: 'Roboto', sanserif
+
 @include mixin.media-tab
-    .post 
+    .side 
         &__text
             font-size: 20px
-            &__time 
-                width: 10px
-            > * 
-                margin-right: 5px
 
 @include mixin.media-mob
-    .post__text
+    .side__text
         padding: 5px

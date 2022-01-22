@@ -1,36 +1,71 @@
 
 @use '../1-helpers/1-helper' as help
 
-.post
-    width: 100%
-    padding: 20px 50px
-    
-    &__text
-        margin-bottom: 15px
+// page container
 
-    &__img > img
-        height: 400px
-        width: 70%
-        object-fit: contain 
-        display: block
-        margin: 0 auto
+.page
+    display: flex 
+    height: 100vh
 
-    &__time 
-        width: 40%
-        margin-top: 10px
-        display: inline-flex
-        color: help.$text-grey
-        margin-right: auto
+    // post section
+    .post
+        flex: 2
+        height: 100%
+        display: flex
+        flex-flow: column
+        background-color: rgba(help.$black, .8)
+        justify-content: center
+        position: relative
 
-        > * 
-            margin-right: 10px
+        &__img > img
+            max-height: 90% 
+            width: 100%
+            max-width: 300px
+            object-fit: cover 
+            display: block
+            margin: 10px auto
+
+        @include help.media-tab
+            display: none
+
+        .image-info
+            background: rgba(help.$black, .4)
+            padding: 15px
+            color: help.$white
+            position: absolute
+            bottom: 0
+            left: 0
+            width: 100%
+           
+            ul 
+                padding-left: 0
+                display: flex
+                justify-content: space-evenly
+
+                li 
+                    cursor: pointer
+                    font-size: 1.2rem
+
+                    span 
+                        margin-left: 7px
+
+                    i
+                        padding: 7px
+                        border-radius: 50%
+                        &:hover
+                            background: darken(help.$white, 80)
+                            color: help.$white
+                    
+                :nth-child(2) > i 
+                    &:hover 
+                        background: rgba(#66ff33, .1)
+                        color: #339933
 
 
+    // media queries for mobile
 
-@include help.media-mob
-    .post 
-        padding: 10px
-        &__text 
-            margin-bottom: 9px
-    
-
+    @include help.media-mob
+        .post 
+            padding: 10px
+            &__text 
+                margin-bottom: 9px

@@ -4,43 +4,126 @@ html(lang="en")
         meta(charset="UTF-8")
         meta(http-equiv="X-UA-Compatible", content="IE=edge")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
+
+        //- font awesome link
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        
+        //- favicon icon 
+        <link rel="icon" href="Assets/twitter-title.png" type="image/gif" sizes="16x16">
+
+        //- stylesheet link
         link(rel="stylesheet", href="css/comment.css")
-        title Document
-    body  
-        //- header section 
-        header.header#js-header
-         .sign-bar 
-            .sign-bar__container 
-             button.login-cta.login-cta_color
-              a(href="#" class="login-link") Log in 
-             button.sign-in-cta.sign-in-cta_color 
-              a(href="#" class="sign-link") Sign up 
-         .user
-          .user__details
-            .user__img
-              img(src="Assets/profile.jpg", alt="profile.jpg") 
-            .user__name 
-              h3.name cristiano ronaldo 
-              h4.id @Cristiano
-          .menu-btn#js-menu-btn
-            i.fas.fa-ellipsis-h
-          .menu#js-menu 
-            li 
-              i.fas.fa-code 
-              p Embed Tweet
-            li 
-              i.far.fa-address-card
-              p View hidden replies
+        
+        title Cristiano Ronaldo
+    body
 
-        section.post 
-          .post__text
-            | There is no harm in dreaming of becoming the world's best player. It is all about trying to be the best. I will keep working hard to achieve it but it is within my capabilities.
-          .post__img
-            img(src="Assets/post.jpeg", alt="post.jpg")
+        -let retweet = 17+"k"
+        -let quoteTweet = 799 
+        -let likes = 124+"k"
+        -let comment = 15+"k"
+          
 
-          .post__time 
-            .time 7:29&nbsp;PM
-            .date Jan&nbsp;17,&nbsp;2022
-            .device Twitter&nbsp;for&nbsp;iPhone
+        //- post-info mixin for repeat using 
+        mixin post-info(showInfo)
+
+          //- receiving a boolean data, if that's true then show the below post image info
+          -if(showInfo)
+            .image-info
+              ul 
+                li
+                  i.far.fa-comment
+                  span= comment
+                li
+                  i.fas.fa-retweet
+                  span= retweet 
+                li 
+                  i.far.fa-heart
+                  span= likes
+                li 
+                  i.far.fa-share-square         
+          -else
+            .post__info
+              .tweets 
+                p= retweet 
+                  span Retweets 
+                p= quoteTweet 
+                  span Quote Tweets
+              .likes 
+                p= likes
+                span Likes
+
+            .post__reply 
+              ul 
+                li
+                  i.far.fa-comment
+                li
+                  i.fas.fa-retweet
+                li 
+                  i.far.fa-heart
+                li 
+                  i.far.fa-share-square
+              li 
+                i.fas.fa-campground
+                span &nbsp;Tip
+
+        //- page is the parent container
+        .page
+
+          //- post section
+          section.post
+
+            .post__img
+              img(src="Assets/post.jpeg", alt="post.jpg")
+
+            //- calling post-info mixin
+            +post-info(true)
+
+          //- side bar for post information like, comments 
+          aside.side
+
+            //- header section
+            header.header#js-header
+              .sign-bar 
+                .sign-bar__container 
+                  button.login-cta.login-cta_color
+                    a(href="#" class="login-link") Log in 
+                  button.sign-in-cta.sign-in-cta_color 
+                    a(href="#" class="sign-link") Sign up
+
+              //- user details 
+              .user
+                .user__details
+                  .user__img
+                    img(src="Assets/profile.jpg", alt="profile.jpg") 
+                  .user__name 
+                    h3.name cristiano ronaldo 
+                      span.blue_tick 
+                        img(src="Assets/blue_tick.png", alt="blue_tick.png") 
+                    h4.id @Cristiano
+
+                .menu-btn#js-menu-btn
+                  i.fas.fa-ellipsis-h
+                .menu#js-menu 
+                  li 
+                    i.fas.fa-code 
+                    p Embed Tweet
+                  li 
+                    i.far.fa-address-card
+                    p View hidden replies
+              
+            .side__img
+              img(src="Assets/post.jpeg", alt="post.jpg")
+              
+            .side__text
+              | There is no harm in dreaming of becoming the world's best player. It is all about trying to be the best. I will keep working hard to achieve it but it is within my capabilities.
+
+            .side__time 
+              .time#js-time 7:29&nbsp;PM
+              .date#js-date Jan&nbsp;17,&nbsp;2022
+              .device Twitter&nbsp;for&nbsp;iPhone
+
+            //- calling post-info mixin
+            +post-info(false)
+
+        //- script for javascript 
         script(src="javascript/js-min/main.js")

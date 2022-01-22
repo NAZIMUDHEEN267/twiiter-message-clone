@@ -2,8 +2,16 @@
 @use './variables' as var
 
 
-// media queries 
+// lines for post-info
+@mixin line
+    content: ""
+    height: 1px 
+    width: 100%
+    position: absolute
+    left: 0
+    background-color: lighten(var.$text-grey, 50)    
 
+// media queries 
 @mixin media-desk 
     @media (max-width: var.$desktop)
         @content

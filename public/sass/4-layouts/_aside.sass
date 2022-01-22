@@ -1,0 +1,109 @@
+
+@use '../1-helpers/1-helper' as help
+
+// ============ side info bar
+
+.side 
+    flex: 1
+    overflow: scroll
+
+    li 
+        cursor: pointer
+        color: help.$text-grey
+
+    &__text
+        margin-bottom: 5px
+        color: help.$black
+        padding: 0 10px
+
+    &__img > img
+        max-height: 90% 
+        width: 100%
+        max-width: 300px
+        object-fit: cover 
+        display: block
+        margin: 10px auto
+        display: none 
+    
+        @include help.media-tab    
+            display: block
+
+    &__time 
+        width: 40%
+        margin: 10px 0
+        padding: 10px
+        display: inline-flex
+        color: help.$text-grey
+        margin-right: auto
+        font-size: 15px
+            
+        > * 
+            margin-right: 10px
+
+    .post__info
+        padding: 0 10px
+        font-weight: 600
+        font-size: 15px
+
+        span 
+            margin-left: 3px
+            color: help.$text-grey
+            font-weight: 500
+
+        .tweets  
+            display: flex
+            padding: 20px 0 20px 0
+            position: relative
+
+            &::before   
+                @include help.line 
+                top: 0
+
+            &::after 
+                @include help.line
+                bottom: 0
+    
+
+            :first-child
+                margin-right: 6px
+        .likes
+            padding: 20px 0 20px 0
+            position: relative
+
+            &::after 
+                @include help.line 
+                bottom: 0
+
+            p
+                display: inline
+
+    .post__reply
+        display: flex
+        justify-content: space-between
+        padding: 10px 20px
+        position: relative
+
+        &::after 
+            @include help.line
+            bottom: 0 
+
+        ul  
+            padding-left: 0
+            display: flex
+
+            li 
+                padding-right: 30px
+                padding: 7px
+                border-radius: 50%
+
+                &:hover 
+                    color: help.$primary 
+                    background: lighten(help.$primary, 62)
+
+            :nth-child(3)
+                &:hover 
+                    color: crimson
+                    background: lighten(crimson, 48)
+        
+        :last-child > span
+            font-size: 14px
