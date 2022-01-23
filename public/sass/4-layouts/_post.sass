@@ -9,7 +9,7 @@
 
     // post section
     .post
-        flex: 2
+        flex: 2 0 70%
         height: 100%
         display: flex
         flex-flow: column
@@ -17,16 +17,30 @@
         justify-content: center
         position: relative
 
-        &__img > img
-            max-height: 90% 
-            width: 100%
-            max-width: 300px
-            object-fit: cover 
-            display: block
-            margin: 10px auto
-
+        // when tablet users can't see the post section
         @include help.media-tab
             display: none
+
+        .post__img
+            height: 100%
+
+            // higher than tablet width image size will be grow
+            @media (min-width: help.$tablet)
+                > img 
+                    max-width: 70%
+                    object-fit: contain
+                    height: 90%
+                    display: block
+                    margin: 10px auto
+
+        // below tablet view image size will small
+
+            @include help.media-tab
+                > img 
+                    height: 60%
+
+         
+            
 
         .image-info
             background: rgba(help.$black, .4)
@@ -50,8 +64,9 @@
                         margin-left: 7px
 
                     i
-                        padding: 7px
+                        padding: 8px
                         border-radius: 50%
+                        transition: all ease .100ms .100ms
                         &:hover
                             background: darken(help.$white, 80)
                             color: help.$white

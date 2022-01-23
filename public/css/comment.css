@@ -1,5 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Dongle:wght@300&family=Lato&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Lato&family=Roboto&display=swap");
+@media big-img {
+  .post__img {
+    height: 100%;
+  }
+}
 *, *::after, *::before {
   box-sizing: border-box;
   margin: 0;
@@ -222,7 +227,7 @@ li {
   height: 100vh;
 }
 .page .post {
-  flex: 2;
+  flex: 2 0 70%;
   height: 100%;
   display: flex;
   flex-flow: column;
@@ -230,17 +235,21 @@ li {
   justify-content: center;
   position: relative;
 }
-.page .post__img > img {
-  max-height: 90%;
-  width: 100%;
-  max-width: 300px;
-  object-fit: cover;
-  display: block;
-  margin: 10px auto;
-}
 @media (max-width: 768px) {
   .page .post {
     display: none;
+  }
+}
+.page .post .post__img {
+  height: 100%;
+}
+@media (min-width: 768px) {
+  .page .post .post__img > img {
+    max-width: 70%;
+    object-fit: contain;
+    height: 90%;
+    display: block;
+    margin: 10px auto;
   }
 }
 .page .post .image-info {
@@ -265,8 +274,9 @@ li {
   margin-left: 7px;
 }
 .page .post .image-info ul li i {
-  padding: 7px;
+  padding: 8px;
   border-radius: 50%;
+  transition: all ease 0.1ms 0.1ms;
 }
 .page .post .image-info ul li i:hover {
   background: #333333;
@@ -286,7 +296,7 @@ li {
 }
 
 .side {
-  flex: 1;
+  flex: 0 1 auto;
   overflow: scroll;
 }
 .side li {
@@ -313,7 +323,6 @@ li {
   }
 }
 .side__time {
-  width: 40%;
   margin: 10px 0;
   padding: 10px;
   display: inline-flex;
@@ -410,6 +419,73 @@ li {
 }
 .side .post__reply :last-child > span {
   font-size: 14px;
+}
+
+.reply {
+  padding: 10px;
+  overflow-x: hidden;
+}
+.reply .user {
+  display: flex;
+}
+.reply .user__img > img {
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.reply .user__details {
+  position: relative;
+  margin-left: 10px;
+  font-size: 0.9rem;
+  width: 100%;
+}
+.reply .user__details ul {
+  display: flex;
+  padding-left: 0;
+  width: inherit;
+}
+.reply .user__details ul :not(:nth-child(2)) {
+  color: #000;
+}
+.reply .user__details ul li {
+  margin-right: 5px;
+  font-weight: 600;
+}
+@media (max-width: 440px) {
+  .reply .user__details ul li em {
+    display: none;
+  }
+}
+.reply .user__details ul .menu {
+  color: #635f5f;
+  margin-left: auto;
+}
+.reply .user__details ul .menu i {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 9px;
+  border-radius: 50%;
+}
+.reply .user__details ul .menu i:hover {
+  color: #0878a1;
+  background: #e7f8fe;
+}
+.reply .user__details .owner .tag {
+  color: #0878a1;
+}
+.reply .post__reply {
+  width: 100%;
+}
+.reply .post__reply ul {
+  width: inherit;
+}
+.reply .post__reply ul :first-child {
+  color: red;
+}
+.reply .post__reply ul :last-child {
+  margin-left: auto;
 }
 
 /*# sourceMappingURL=comment.css.map */

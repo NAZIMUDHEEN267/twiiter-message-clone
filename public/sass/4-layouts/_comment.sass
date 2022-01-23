@@ -1,0 +1,66 @@
+
+@use '../1-helpers/1-helper' as help
+
+.reply 
+    padding: 10px
+    overflow-x: hidden
+
+    .user
+        display: flex
+
+        &__img > img  
+            height: 60px
+            width: 60px 
+            border-radius: 50%
+            object-fit: cover
+
+        &__details
+            position: relative
+            margin-left: 10px
+            font-size: .9rem
+            width: 100% 
+
+            ul 
+                display: flex
+                padding-left: 0
+                width: inherit
+
+                :not(:nth-child(2))
+                    color: help.$black
+
+                li 
+                    margin-right: 5px
+                    font-weight: 600
+                    
+                    em 
+                        @include help.media-mob
+                            display: none
+                    
+                
+                .menu
+                    color: help.$text-grey
+                    margin-left: auto
+                    i
+                        position: absolute
+                        top: 0 
+                        right: 0
+                        padding: 9px
+                        border-radius: 50%
+                        &:hover 
+                            color: help.$primary 
+                            background: lighten(help.$primary, 62)
+            
+            .owner .tag 
+                color: help.$primary
+
+    .post__reply 
+        width: 100%
+        ul 
+            width: inherit
+
+            :first-child 
+                color: red
+
+            :last-child 
+                margin-left: auto
+                     

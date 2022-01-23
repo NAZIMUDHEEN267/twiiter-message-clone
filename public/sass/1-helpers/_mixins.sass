@@ -1,7 +1,6 @@
 
 @use './variables' as var
 
-
 // lines for post-info
 @mixin line
     content: ""
@@ -27,3 +26,14 @@
 @mixin media-mob 
     @media (max-width: var.$mobile)
         @content
+
+
+
+// post-image below tablet view
+@media tab-img
+
+// post-image higer than tablet view
+@media big-img
+    .post__img
+        height: 100%
+  

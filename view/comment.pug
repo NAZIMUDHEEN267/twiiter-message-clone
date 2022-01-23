@@ -42,15 +42,16 @@ html(lang="en")
                 li 
                   i.far.fa-share-square         
           -else
-            .post__info
-              .tweets 
-                p= retweet 
-                  span Retweets 
-                p= quoteTweet 
-                  span Quote Tweets
-              .likes 
-                p= likes
-                span Likes
+            -if(showInfo == null)
+              .post__info
+                .tweets 
+                  p= retweet 
+                    span Retweets 
+                  p= quoteTweet 
+                    span Quote Tweets
+                .likes 
+                  p= likes
+                  span Likes
 
             .post__reply 
               ul 
@@ -62,9 +63,9 @@ html(lang="en")
                   i.far.fa-heart
                 li 
                   i.far.fa-share-square
-              li 
-                i.fas.fa-campground
-                span &nbsp;Tip
+                li 
+                  i.fas.fa-campground
+                  span &nbsp;Tip
 
         //- page is the parent container
         .page
@@ -76,7 +77,7 @@ html(lang="en")
               img(src="Assets/post.jpeg", alt="post.jpg")
 
             //- calling post-info mixin
-            +post-info(true)
+            +post-info("string")
 
           //- side bar for post information like, comments 
           aside.side
@@ -118,12 +119,57 @@ html(lang="en")
               | There is no harm in dreaming of becoming the world's best player. It is all about trying to be the best. I will keep working hard to achieve it but it is within my capabilities.
 
             .side__time 
-              .time#js-time 7:29&nbsp;PM
-              .date#js-date Jan&nbsp;17,&nbsp;2022
+              .time#js-time
+              .date#js-date
               .device Twitter&nbsp;for&nbsp;iPhone
 
             //- calling post-info mixin
-            +post-info(false)
+            +post-info(null)
+
+            //- comment section
+            section.comment
+
+              //- users list   
+              -let users = ['micheal jackson', 'messi','steve jobs','elon musk','barak obama']
+              
+              //- looping each users comment
+              each user,index in users 
+                .reply
+                  .user 
+                    .user__img 
+                      img(src=`Assets/${index}.jpg`, alt=`${user}.jpg`)
+                    .user__details
+
+                      ul 
+                        //- username  
+                        li= user
+
+                        //- username length cutting
+                        -if(user.length > 4) 
+                          li= `@${user.substring(0,4)}...`
+                        -else if (user.length >= 10) 
+                          li ...
+                      
+
+                        //- //- date 
+                        li 
+                          -let dt = new Date()
+                          -const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', "Dec"]
+                          i= dt.getDate()+' ,'+ months[dt.getMonth()] +' '
+                            em= dt.getFullYear()
+
+                        li.menu
+                          i.fas.fa-ellipsis-h
+
+                      .owner
+                        li Replying to 
+                          span.tag @Cristiano
+                  .message 
+                    p hello ronaldo
+
+                  //- passing falsy value
+                  +post-info("") 
+                      
 
         //- script for javascript 
-        script(src="javascript/js-min/main.js")
+        script(src="javascript/main.js")
