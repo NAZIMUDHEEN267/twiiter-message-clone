@@ -5,7 +5,8 @@
 
 .side 
     flex: 0 1 auto
-    overflow: scroll
+    overflow-y: scroll
+    overflow-x: hidden
 
     li 
         cursor: pointer
@@ -81,6 +82,7 @@
         justify-content: space-between
         padding: 10px 20px
         position: relative
+        width: 100%
 
         &::after 
             @include help.line
@@ -89,20 +91,27 @@
         ul  
             padding-left: 0
             display: flex
+            width: inherit
 
             li 
                 padding-right: 30px
                 padding: 7px
                 border-radius: 50%
-
+            
+            :not(:last-child)
+                margin-left: 10px
                 &:hover 
                     color: help.$primary 
                     background: lighten(help.$primary, 62)
+
+            :nth-child(5)
+                &::after 
+                    @include help.tip 
 
             :nth-child(3)
                 &:hover 
                     color: crimson
                     background: lighten(crimson, 48)
         
-        :last-child > span
-            font-size: 14px
+            :last-child
+                margin-left: auto

@@ -10,6 +10,11 @@
     // post section
     .post
         flex: 2 0 70%
+
+        // decrease post width when laptop size come
+        @include help.media-lap 
+            flex-basis: 55%
+
         height: 100%
         display: flex
         flex-flow: column

@@ -1,12 +1,20 @@
 
 
     // dom variables
+
+    // for user menu button
     const menuBtn = document.getElementById('js-menu-btn');
     const menu = document.getElementById('js-menu');
+
+    // body
     const body = document.querySelector('body');
+
+    // for date 
     const time = document.getElementById('js-time');
     const date = document.getElementById('js-date');
-    const domMonth = document.getElementById('js-month');
+    // for comment button
+    const list = document.getElementById('js-list');
+
 
     // listening a event when a user clicking the button
     menuBtn.addEventListener('click', () => {
@@ -18,6 +26,8 @@
     //     menu.style.display = 'none';
     // })
 
+
+    // get date
     const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', "Dec"]
 
     const dt = new Date();
@@ -42,6 +52,32 @@
         }
     }
 
+    // username string length cutting 
+    let lengthCut;
+    const textUsers = [...document.querySelectorAll("#js-name")];
+    const usernames = [...document.querySelectorAll('#js-username')];
 
-    // domMonth.innerHTML = month[dt.getMonth()]
-    
+    textUsers.forEach((user,index)=> {
+        if(user.textContent.length >= 12){
+            lengthCut = '...'
+            usernames[index].innerHTML = lengthCut
+        }else if(user.textContent.length > 4){
+            lengthCut = `@${user.textContent.substring(0,4)}...`
+            usernames[index].innerHTML = lengthCut
+        }
+    });
+
+
+    // comment button
+    body.addEventListener('click', (e) => {
+        let check = new String(e.target.id)
+        if(
+            !isNaN(check[check.length - 1]) && 
+            check.slice(0,check.length - 1) == 'js-menu-btn'
+          )
+            {   
+                alert('yes')
+                document.getElementById(`js-menu-box${check[check.length-1]}`)
+                .classList.add('visible')
+            }
+        })

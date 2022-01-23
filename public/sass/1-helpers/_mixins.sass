@@ -28,12 +28,9 @@
         @content
 
 
-
-// post-image below tablet view
-@media tab-img
-
-// post-image higer than tablet view
-@media big-img
-    .post__img
-        height: 100%
-  
+// text tip after share symbol in side-section
+@mixin tip 
+    content: "tip"
+    margin-left: 5px 
+    text-transform: capitalize
+    font-size: 12px

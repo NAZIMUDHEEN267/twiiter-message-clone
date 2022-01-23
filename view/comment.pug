@@ -65,7 +65,6 @@ html(lang="en")
                   i.far.fa-share-square
                 li 
                   i.fas.fa-campground
-                  span &nbsp;Tip
 
         //- page is the parent container
         .page
@@ -140,18 +139,14 @@ html(lang="en")
                       img(src=`Assets/${index}.jpg`, alt=`${user}.jpg`)
                     .user__details
 
-                      ul 
-                        //- username  
-                        li= user
+                      ul#js-list
+                        //- name  
+                        li#js-name= user
 
                         //- username length cutting
-                        -if(user.length > 4) 
-                          li= `@${user.substring(0,4)}...`
-                        -else if (user.length >= 10) 
-                          li ...
+                        li#js-username
                       
-
-                        //- //- date 
+                        //- date 
                         li 
                           -let dt = new Date()
                           -const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', "Dec"]
@@ -159,13 +154,22 @@ html(lang="en")
                             em= dt.getFullYear()
 
                         li.menu
-                          i.fas.fa-ellipsis-h
+                          i.fas.fa-ellipsis-h(id=`js-menu-btn${index}`)
+     
+                          li(id=`js-menu-box${index}` class="menu__box-others hidden")
+                            i.fas.fa-code
+                            p Embed Tweet
+
+                          //- .menu__box-user
+                          //-   i.fas.fa-delete delete
+                          //-   i.fas.fa-edit edit 
+
 
                       .owner
                         li Replying to 
                           span.tag @Cristiano
-                  .message 
-                    p hello ronaldo
+                      .message 
+                        p Lorem ipsum dolor sit, amet consectetur adipisicing elit. Totam rem magnam saepe possimus nisi velit, quia ad quae voluptate neque architecto eos sunt delectus, voluptates similique suscipit atque. Aliquid, consequatur!
 
                   //- passing falsy value
                   +post-info("") 
