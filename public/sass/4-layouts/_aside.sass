@@ -104,7 +104,11 @@
                     color: help.$primary 
                     background: lighten(help.$primary, 62)
 
-            :nth-child(5)
+            .camp-ground
+
+                //if mobile size the element will disappear
+                @include help.media-mob  
+                    display: none
                 &::after 
                     @include help.tip 
 

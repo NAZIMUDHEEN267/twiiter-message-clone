@@ -8,14 +8,15 @@
 
     // body
     const body = document.querySelector('body');
-
+    
     // for date 
     const time = document.getElementById('js-time');
     const date = document.getElementById('js-date');
     // for comment button
     const list = document.getElementById('js-list');
-
-
+    // textarea resizing
+    const textarea = document.querySelector('textarea');
+    
     // listening a event when a user clicking the button
     menuBtn.addEventListener('click', () => {
         menu.style.display = 'block';
@@ -73,11 +74,27 @@
         let check = new String(e.target.id)
         if(
             !isNaN(check[check.length - 1]) && 
-            check.slice(0,check.length - 1) == 'js-menu-btn'
+            check.slice(0,check.length - 1) === 'js-menu-btn'
           )
             {   
-                alert('yes')
                 document.getElementById(`js-menu-box${check[check.length-1]}`)
                 .classList.add('visible')
             }
         })
+
+
+    // textarea height resizing
+    let scrollHeight, currentLength = 0; // 46
+
+    textarea.addEventListener('input', () => {
+        scrollHeight = textarea.scrollHeight
+        textarea.style.height = scrollHeight + 'px'
+        
+        if(textarea.textLength === currentLength + 23){
+            currentLength = textarea.textLength
+        }
+        else if(currentLength > textarea.textLength){
+            scrollHeight = scrollHeight - 19 
+            textarea.style.height = scrollHeight + 'px'
+        }
+    })

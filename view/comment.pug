@@ -63,7 +63,9 @@ html(lang="en")
                   i.far.fa-heart
                 li 
                   i.far.fa-share-square
-                li 
+                li.share
+                  i.fas.fa-share-alt
+                li.camp-ground
                   i.fas.fa-campground
 
         //- page is the parent container
@@ -127,6 +129,15 @@ html(lang="en")
 
             //- comment section
             section.comment
+              .personal
+                .personal__logo 
+                  img(src="Assets/personal-logo.png", alt="person.jpg") 
+                .personal__reply
+                  form(action="https://www.google.com", method="post")
+                    <textarea name="reply-text" placeholder="Tweet your reply" style="resize:none"></textarea>   
+                .personal__cta
+                    button(class="personal__cta") reply 
+
 
               //- users list   
               -let users = ['micheal jackson', 'messi','steve jobs','elon musk','barak obama']
@@ -159,10 +170,6 @@ html(lang="en")
                           li(id=`js-menu-box${index}` class="menu__box-others hidden")
                             i.fas.fa-code
                             p Embed Tweet
-
-                          //- .menu__box-user
-                          //-   i.fas.fa-delete delete
-                          //-   i.fas.fa-edit edit 
 
 
                       .owner

@@ -12,7 +12,8 @@ html
 
 body 
     background: help.$white 
-
+    scroll-behaviour: smooth
+    
 a 
     text-decoration: none
 
@@ -27,3 +28,12 @@ li
 
 .visible
     visibility: visible
+
+
+.share 
+    display: none
+
+    @include help.media-mob 
+        display: block
+        color: lighten(grey, 6) !important
+        margin-left: auto !important
