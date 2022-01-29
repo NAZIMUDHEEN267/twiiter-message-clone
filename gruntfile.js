@@ -6,10 +6,10 @@ module.exports = function (grunt) {
         files: [
           {
             expand: true,
-            cwd: "public/sass/5-pages/",
-            src: ["*.sass"],
-            dest: "public/css",
-            ext: ".css",
+            cwd: 'public/sass/5-pages/',
+            src: ['*.sass'],
+            dest: 'public/css',
+            ext: '.css',
           },
         ],
       },
@@ -21,10 +21,10 @@ module.exports = function (grunt) {
         files: [
           {
             expand: true,
-            cwd: "public/css",
-            src: ["*.css", "!*.min.css"],
-            dest: "public/css/css-min",
-            ext: ".min.css",
+            cwd: 'public/css',
+            src: ['*.css', '!*.min.css'],
+            dest: 'public/css/css-min',
+            ext: '.min.css',
           },
         ],
       },
@@ -36,56 +36,59 @@ module.exports = function (grunt) {
         files: [
           {
             expand: true,
-            cwd: "public/javascript",
-            src: "*.js",
-            dest: "public/javascript/js-min",
+            cwd: 'build/js',
+            src: '*.js',
+            dest: 'public/js/',
           },
         ],
       },
     },
 
-    // find error in code
+    // code styling
     eslint: {
       options: {
-        overrideConfigFile: ".eslintrc.json",
+        overrideConfigFile: '.eslintrc.json'
+        // fix: true,
       },
-      target: ["**/*.js", "!node_modules/**/*.js"],
+      target: ['**/*.js', '!node_modules/**/*.js'],
     },
 
     // watch task
     watch: {
       cssmin: {
-        files: ["public/css/.*css"],
-        tasks: ["cssmin"],
+        files: ['public/css/.*css'],
+        tasks: ['cssmin'],
       },
 
       uglify: {
-        files: ["public/javascript/*.js"],
-        tasks: ["uglify"],
+        files: ['build/js/*.js'],
+        tasks: ['uglify'],
       },
+
       sass: {
-        files: ["public/sass/5-pages/*.sass"],
-        tasks: ["sass"],
+        files: ['public/sass/5-pages/*.sass'],
+        tasks: ['sass'],
       },
+
       eslint: {
-        files: ["**/*.js", "!node_modules/**/*.js"],
-        tasks: ["eslint"],
+        files: ['**/*.js', '!node_modules/**/*.js'],
+        tasks: ['eslint'],
       },
     },
   });
 
   // tasks
-  grunt.loadNpmTasks("grunt-contrib-sass");
-  grunt.loadNpmTasks("grunt-contrib-cssmin");
-  grunt.loadNpmTasks("grunt-contrib-uglify");
-  grunt.loadNpmTasks("grunt-contrib-watch");
-  grunt.loadNpmTasks("grunt-eslint");
+  grunt.loadNpmTasks('grunt-contrib-sass');
+  grunt.loadNpmTasks('grunt-contrib-cssmin');
+  grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-eslint');
 
   // register task to grunt
-  grunt.registerTask("default", [
-    "watch:cssmin",
-    "watch:uglify",
-    "watch:sass",
-    "watch:eslint",
+  grunt.registerTask('default', [
+    'watch:cssmin',
+    'watch:uglify',
+    'watch:sass',
+    'watch:eslint',
   ]);
 };

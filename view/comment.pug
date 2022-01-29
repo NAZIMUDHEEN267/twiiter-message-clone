@@ -15,7 +15,7 @@ html(lang="en")
         link(rel="stylesheet", href="css/comment.css")
         
         title Cristiano Ronaldo
-    body
+    body#js-body
 
         -let retweet = 17+"k"
         -let quoteTweet = 799 
@@ -70,6 +70,7 @@ html(lang="en")
 
         //- page is the parent container
         .page
+          .overlay#js-overlay
 
           //- post section
           section.post
@@ -81,7 +82,7 @@ html(lang="en")
             +post-info("string")
 
           //- side bar for post information like, comments 
-          aside.side
+          aside.side#js-side
 
             //- header section
             header.header#js-header
@@ -105,7 +106,7 @@ html(lang="en")
 
                 .menu-btn#js-menu-btn
                   i.fas.fa-ellipsis-h
-                .menu#js-menu 
+                .menu#js-menu.hidden
                   li 
                     i.fas.fa-code 
                     p Embed Tweet
@@ -129,16 +130,36 @@ html(lang="en")
 
             //- comment section
             section.comment
-              .personal
+              .personal#js-personal
                 .personal__logo 
                   img(src="Assets/personal-logo.png", alt="person.jpg") 
                 .personal__reply
-                  form(action="https://www.google.com", method="post")
-                    <textarea name="reply-text" placeholder="Tweet your reply" style="resize:none"></textarea>   
-                .personal__cta
+                  form(action="/", method="post" id="form")
+                    <textarea class="one" id="js-textarea" name="reply-text" placeholder="Tweet your reply" style="resize:none"></textarea>   
+                .personal__button#js-side-btn
                     button(class="personal__cta") reply 
 
+              //- reply input for person
+              .personal__input#js-personal-input
+                ul 
+                  <button style="background: transparent; border: none;width:1px;" onclick="document.getElementById('getFile').click()">
+                    i.far.fa-image(style="font-size: 1rem")
+                  </button>
+                  <input type='file' id="getFile" style="display:none">
+                  li.gif
+                    img(src="Assets/gif.png", alt="gif.png" name="gif")
+                  li.far.fa-smile.emoji-btn
 
+                .personal__button
+                  button(type="submit" form="form" class="personal__cta" id="js-personal__cta") reply
+
+              
+              //- gif images
+              .gif__images#js-gif__images
+
+              .show-more#js-show-more 
+                p show more
+              
               //- users list   
               -let users = ['micheal jackson', 'messi','steve jobs','elon musk','barak obama']
               
@@ -181,6 +202,5 @@ html(lang="en")
                   //- passing falsy value
                   +post-info("") 
                       
-
         //- script for javascript 
-        script(src="javascript/main.js")
+        script(src="javascript/comment.js" type="module")

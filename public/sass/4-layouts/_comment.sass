@@ -1,7 +1,6 @@
 
 @use '../1-helpers/1-helper' as help
 
-
 // ======== comment layout
 
 .comment
@@ -33,13 +32,13 @@
                 justify-content: center
 
                 // hiding scrollbar 
-                ::-webkit-scrollbar
+                &::-webkit-scrollbar
                     display: none
 
                 textarea 
                     border: none 
                     width: 90%
-                    height: 35px
+                    height: 46px
                     outline: none 
                     padding: 8px
                     gap: 5px
@@ -48,8 +47,92 @@
                 
                 ::placeholder 
                     font-size: .8rem 
-                    color: darken(help.$text-grey, 25)     
+                    color: darken(help.$text-grey, 25)  
 
+
+    // personal input messages or emoji/gif
+    .personal__input
+        display: flex
+        padding: 0 10px
+
+        ul 
+            display: flex 
+            flex: 3
+            justify-content: start
+            gap: 20px
+            align-items: center
+            padding-left: unset
+            
+            & :hover
+                color: lighten(help.$primary, 30)
+
+            .gif 
+                width: 20px
+                margin-top: 5px
+
+                img 
+                    width: 100%
+
+        .personal__cta 
+            text-align: center
+            flex: 1
+
+    //gif images 
+    .gif__images    
+        width: calc(100% - 10px)
+        margin: auto
+        margin-top: 10px
+        height: 320px 
+        overflow-y: scroll
+        position: relative
+        overflow-x: hidden
+
+        &::-webkit-scrollbar
+            display: none
+
+        //width reduce in tab view
+        @include help.media-tab 
+            width: calc(100% - 40px)
+
+        .images
+            display: flex 
+            width: 100%
+            margin: auto
+
+            // height reducing 
+            @include help.media-tab 
+                height: 120px
+
+            @include help.media-mob 
+                height: 100px
+                flex-wrap: wrap
+
+            img 
+                width: 50%
+                height: 150px
+                object-fit: fill
+                margin: 2px
+
+                @include help.media-mob
+                    width: 100%
+    
+    .show-more
+        width: 95%
+        cursor: pointer
+        background: rgba(help.$black,.1)
+        margin: auto
+        display: none
+
+        p
+            text-align: center 
+            font-weight: 500
+            padding: 10px
+
+            &:hover 
+                text-decoration: underline
+                color: help.$primary
+
+    
     // other users comment
     .reply 
         padding: 10px
@@ -81,7 +164,7 @@
                     li 
                         margin-right: 5px
                         font-weight: 600
-                        font-size 
+                        font-size: 14px
                         
                     // menu button (3 dots)
                     .menu
@@ -135,3 +218,8 @@
                 :last-child
                     margin-left: auto
         
+
+// =========== emoji container
+.fg-emoji-container
+    max-width: 350px !important
+    margin: auto
