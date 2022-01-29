@@ -77,61 +77,113 @@
             text-align: center
             flex: 1
 
-    //gif images 
-    .gif__images    
-        width: calc(100% - 10px)
-        margin: auto
-        margin-top: 10px
-        height: 320px 
-        overflow-y: scroll
-        position: relative
-        overflow-x: hidden
-
-        &::-webkit-scrollbar
-            display: none
-
-        //width reduce in tab view
-        @include help.media-tab 
-            width: calc(100% - 40px)
-
-        .images
-            display: flex 
-            width: 100%
-            margin: auto
-
-            // height reducing 
-            @include help.media-tab 
-                height: 120px
-
-            @include help.media-mob 
-                height: 100px
-                flex-wrap: wrap
-
-            img 
-                width: 50%
-                height: 150px
-                object-fit: fill
-                margin: 2px
-
-                @include help.media-mob
-                    width: 100%
-    
-    .show-more
-        width: 95%
-        cursor: pointer
-        background: rgba(help.$black,.1)
-        margin: auto
+    // gif section
+    .gif-block 
+        margin: 5px 10px 10px
+        background: rgba(help.$black, .2)
+        padding-bottom: 10px
         display: none
+        border-radius: 5px
 
-        p
-            text-align: center 
-            font-weight: 500
-            padding: 10px
+        .search-events
+            width: 100%
 
-            &:hover 
-                text-decoration: underline
-                color: help.$primary
+            .close-btn
+                display: flex 
+                justify-content: end 
 
+                button
+                    color: white
+                    border: none
+                    background: crimson
+                    outline: none
+                    cursor: pointer
+                    padding: 5px 10px
+                    font-weight: 600
+                    font-size: 16px
+                    border-radius: 0 5px 0 0
+
+            .search-gif 
+                display: flex
+                margin: 10px 0
+                padding: 0 10px
+
+                .gif__search
+                    flex: 1
+                    padding: 10px
+                    border: 1px solid help.$primary 
+                    border-right: none
+                    outline: none
+
+                .search-btn 
+                    padding: 10px
+                    font-weight: 500
+                    cursor: pointer
+                    border-left: none
+                    border: 1px solid help.$primary
+                    outline: none
+                    border-left: none
+                    background: white
+                
+
+        //gif images 
+        .gif__images    
+            width: calc(100% - 10px)
+            margin: auto
+            height: 320px 
+            overflow-y: scroll
+            position: relative
+            overflow-x: hidden
+
+            &::-webkit-scrollbar
+                display: none
+
+            //width reduce in tab view
+            @include help.media-tab 
+                width: calc(100% - 20px)
+
+            .images
+                display: flex 
+                width: 100%
+                margin: auto
+
+                // height reducing 
+                @include help.media-tab 
+                    height: 120px
+
+                @include help.media-mob 
+                    height: 100px
+                    flex-wrap: wrap
+
+                img 
+                    width: 50%
+                    height: 150px
+                    object-fit: fill
+                    margin: 2px
+
+                    @include help.media-mob
+                        width: 100%
+        
+        .show-more
+            width: 95%
+            cursor: pointer
+            background: rgba(help.$primary,.8)
+            margin-top: 10px
+            margin: auto
+            display: none
+            border-radius: 5px
+
+            p
+                text-align: center 
+                font-weight: 500
+                padding: 10px
+                color: help.$white
+                border: 1px solid help.$primary
+
+                &:hover 
+                    border: 1px solid help.$primary
+                    background: help.$white
+                    color: help.$primary
     
     // other users comment
     .reply 

@@ -146,7 +146,7 @@ html(lang="en")
                     i.far.fa-image(style="font-size: 1rem")
                   </button>
                   <input type='file' id="getFile" style="display:none">
-                  li.gif
+                  li.gif#js-gif-btn
                     img(src="Assets/gif.png", alt="gif.png" name="gif")
                   li.far.fa-smile.emoji-btn
 
@@ -155,10 +155,21 @@ html(lang="en")
 
               
               //- gif images
-              .gif__images#js-gif__images
+              .gif-block#js-gif-block
 
-              .show-more#js-show-more 
-                p show more
+                .search-events 
+                  .close-btn
+                    button#js-close-btn x
+
+                  .search-gif#js-search-gif   
+                    input(type="search", placeholder="search.." required class="gif__search" id="js-gif-search")
+                    button(class="search-btn" id="js-search-btn") 
+                      i.fas.fa-search
+
+                .gif__images#js-gif__images
+
+                .show-more#js-show-more 
+                  p show more
               
               //- users list   
               -let users = ['micheal jackson', 'messi','steve jobs','elon musk','barak obama']

@@ -11,6 +11,9 @@ export default function () {
     const personalBtn = document.getElementById("js-personal__cta");
     const menu = document.getElementById("js-menu");
     const menuBtn = document.getElementById('js-menu-btn');
+    const gifBtn = document.getElementById('js-gif-btn');
+    const gifBlock = document.getElementById('js-gif-block');
+    const closeBtn = document.getElementById('js-close-btn');
     const body = document.getElementById('js-body');
 
     // overlay function     
@@ -116,6 +119,17 @@ export default function () {
             }
         })
     }
+
+
+    // click event for gif button 
+    gifBtn.addEventListener('click', () => {
+        gifBlock.style.display = 'block';
+    })
+
+    // click event for close gif block
+    closeBtn.addEventListener('click', () => {
+        gifBlock.style.display = 'none';
+    })
 
 }
 
