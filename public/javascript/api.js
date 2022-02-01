@@ -3,6 +3,8 @@ const gif = document.getElementById('js-gif__images');
 const showBtn = document.getElementById('js-show-more');
 const gifSearch = document.querySelector('#js-gif-search');
 const searchBtn = document.querySelector('#js-search-btn');
+const img = document.querySelector('#js-img');
+const showSelection = document.getElementById('js-show-selection')
 
 // boolean value set for show button
 let showClicked = false;
@@ -26,8 +28,8 @@ export default () => {
     // using ajax request for default gif box
     const xhr = new XMLHttpRequest();
 
-    xhr.onreadystatechange = function(){
-        if(this.readyState == 4 && this.status == 200){
+    xhr.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
             const response = this.responseText;
             const apiData = JSON.parse(response);
             loadImage(apiData.data, 7);
@@ -40,14 +42,14 @@ export default () => {
         }
     }
 
-    const url = `https://api.giphy.com/v1/gifs/search?q=funny&rating=g&api_key=-5&q`
-    xhr.open('GET',url, true);
+    const url = `https://api.giphy.com/v1/gifs/search?q=funny&rating=g&api_key=`
+    xhr.open('GET', url, true);
     xhr.send();
 
 
     // fetching data with fetch api
     searchBtn.addEventListener('click', () => {
-        const apiUrl = `https://api.giphy.com/v1/gifs/search?q=${gifSearch.value}&rating=g&api_key=-5&q`
+        const apiUrl = `https://api.giphy.com/v1/gifs/search?q=${gifSearch.value}&rating=g&api_key=`
 
         async function api() {
             const result = await fetch(apiUrl);
@@ -80,4 +82,16 @@ export default () => {
             showBtn.style.display = 'none'
         }
     })
+
+
+    showSelection.style.display  = 'none';
+    function link(url) {
+        showSelection.style.display = 'inline-block';
+        img.src = url;
+    }
+
+    gif.addEventListener('click', (event) => {
+        link(event.target.src);
+    })
 }
+

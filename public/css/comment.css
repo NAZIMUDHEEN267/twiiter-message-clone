@@ -11,7 +11,7 @@ html {
 
 body {
   background: #fff;
-  scroll-behaviour: smooth;
+  scroll-behavior: smooth;
 }
 
 a {
@@ -132,7 +132,6 @@ li {
 
 .personal__cta {
   color: #fff;
-  background: #7cd7f9;
   padding: 10px 30px;
   border-radius: 25px;
   border: none;
@@ -505,6 +504,17 @@ li {
 .comment .personal__reply {
   flex-basis: 80%;
 }
+.comment .personal__reply .show-selection {
+  background: #4cc8f6;
+  padding: 2px;
+  border-radius: 5px;
+  display: inline-block;
+}
+.comment .personal__reply .show-selection img {
+  width: 90px;
+  height: 90px;
+  border-radius: inherit;
+}
 .comment .personal__reply form {
   display: flex;
   justify-content: center;
@@ -514,7 +524,7 @@ li {
 }
 .comment .personal__reply form textarea {
   border: none;
-  width: 90%;
+  width: 100%;
   height: 46px;
   outline: none;
   padding: 8px;
@@ -606,9 +616,17 @@ li {
   overflow-y: scroll;
   position: relative;
   overflow-x: hidden;
+  scrollbar-width: 12px;
+  scrollbar-color: #000 #fff;
 }
 .comment .gif-block .gif__images::-webkit-scrollbar {
-  display: none;
+  width: 12px;
+}
+.comment .gif-block .gif__images::-webkit-scrollbar-track {
+  background: #fff;
+}
+.comment .gif-block .gif__images::-webkit-scrollbar-thumb {
+  background: red;
 }
 @media (max-width: 768px) {
   .comment .gif-block .gif__images {

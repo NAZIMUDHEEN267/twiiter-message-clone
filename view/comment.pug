@@ -134,10 +134,16 @@ html(lang="en")
                 .personal__logo 
                   img(src="Assets/personal-logo.png", alt="person.jpg") 
                 .personal__reply
-                  form(action="/", method="post" id="form")
-                    <textarea class="one" id="js-textarea" name="reply-text" placeholder="Tweet your reply" style="resize:none"></textarea>   
+
+                  <div class="show-selection" id="js-show-selection">
+                    <img id="js-img"/>
+                  </div>
+
+                  form(action="https://google.com", method="post" id="form")
+                    
+                    <textarea id="js-textarea" class="textarea" name="reply-text" placeholder="Tweet your reply" style="resize:none"></textarea>   
                 .personal__button#js-side-btn
-                    button(class="personal__cta") reply 
+                    button(class="personal__cta" style="background:#8dd4f0;") reply
 
               //- reply input for person
               .personal__input#js-personal-input
@@ -191,9 +197,10 @@ html(lang="en")
                       
                         //- date 
                         li 
+                          -const day = Math.ceil(Math.random() * 20)
                           -let dt = new Date()
                           -const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', "Dec"]
-                          i= dt.getDate()+' ,'+ months[dt.getMonth()] +' '
+                          i= day+' ,'+ months[dt.getMonth()] +' '
                             em= dt.getFullYear()
 
                         li.menu
@@ -212,6 +219,7 @@ html(lang="en")
 
                   //- passing falsy value
                   +post-info("") 
+
                       
         //- script for javascript 
         script(src="javascript/comment.js" type="module")

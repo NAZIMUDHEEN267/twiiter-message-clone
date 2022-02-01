@@ -42,8 +42,8 @@ export default function () {
     let scrollHeight;
     let currentLength = 0; // 46
 
-    textarea.addEventListener('input', () => {
-
+    textarea.addEventListener('input', (event) => {
+   
         // for input height controlling
         scrollHeight = textarea.scrollHeight;
         textarea.style.height = `${scrollHeight}px`;
@@ -60,17 +60,17 @@ export default function () {
             }
         }
 
-
-        //any value user entered personal__input block enabled
-        personalBtn.style.background = "#0878a1";
-        personalBtn.style.pointerEvents = 'auto';
+        //any value user entered personal__cta enabled
+        if(event.target.value.length > 0){
+            personalBtn.style.pointerEvents = 'auto'
+            personalBtn.style.background = '#088fc4';
+            personalBtn.style.cursor = 'pointer';
+        }
+        else{ 
+            personalBtn.style.pointerEvents = 'none'
+            personalBtn.style.background = '#8dd4f0';
+        }
     });
-
-    // personalBtn 
-    personalBtn.addEventListener('click', (event) => {
-        event.preventDefault()
-        personalBtn.style.background = '#7cd7f9';
-    })
 
     // to find which number box selected
     let menuBoxNum;
@@ -114,8 +114,11 @@ export default function () {
     side.onscroll = () => {
         const comment = document.querySelector('.comment')
         comment.childNodes.forEach(data => {
-            if (data.className == "fg-emoji-container") {
-                data.remove();
+            if (
+                data.className == "fg-emoji-container" || 
+                data.className == 'gif-block'
+            ) {
+                data.style.display = 'none'
             }
         })
     }
