@@ -23,7 +23,7 @@ module.exports = function (grunt) {
             expand: true,
             cwd: 'public/css',
             src: ['*.css', '!*.min.css'],
-            dest: 'public/css/css-min',
+            dest: 'public/build/css/',
             ext: '.min.css',
           },
         ],
@@ -36,9 +36,9 @@ module.exports = function (grunt) {
         files: [
           {
             expand: true,
-            cwd: 'build/js',
-            src: '*.js',
-            dest: 'public/js/',
+            cwd: 'public/build/js',
+            src: 'mainComment.js',
+            dest: 'public/build/js/',
           },
         ],
       },
@@ -47,21 +47,32 @@ module.exports = function (grunt) {
     // code styling
     eslint: {
       options: {
-        overrideConfigFile: '.eslintrc.json'
-        // fix: true,
+        overrideConfigFile: '.eslintrc.json',
+        fix: true,
       },
       target: ['**/*.js', '!node_modules/**/*.js'],
+    },
+
+    concat: {
+      dist: {
+        src: 'public/javascript/comment/*.js',
+        dest: 'public/build/js/mainComment.js',
+      },
     },
 
     // watch task
     watch: {
       cssmin: {
-        files: ['public/css/.*css'],
+        files: ['public/css/.*css', '!.min.css'],
         tasks: ['cssmin'],
       },
 
       uglify: {
-        files: ['build/js/*.js'],
+        files: [
+          'public/build/js/mainComment.js',
+          'public/build/js/mainLogin.js',
+          'public/build/js/mainSignIn.js',
+        ],
         tasks: ['uglify'],
       },
 
@@ -74,6 +85,10 @@ module.exports = function (grunt) {
         files: ['**/*.js', '!node_modules/**/*.js'],
         tasks: ['eslint'],
       },
+      concat: {
+        files: ['public/javascript/comment/*.js'],
+        tasks: ['concat'],
+      },
     },
   });
 
@@ -82,6 +97,7 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-eslint');
 
   // register task to grunt
@@ -90,5 +106,6 @@ module.exports = function (grunt) {
     'watch:uglify',
     'watch:sass',
     'watch:eslint',
+    'watch:concat',
   ]);
 };

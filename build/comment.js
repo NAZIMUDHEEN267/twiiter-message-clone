@@ -1,8 +1,0 @@
-require('core-js/modules/web.dom-collections.iterator.js'); const _commentEvents = _interopRequireDefault(require('./commentEvents.js'));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }// =========== dom variables
-// events module calling
-(0, _commentEvents.default)().textarea('value not');// for date
-const time = document.getElementById('js-time'); const date = document.getElementById('js-date');// get date
-const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']; const dt = new Date(); const year = dt.getFullYear(); const month = months[dt.getMonth()]; const dateNum = dt.getDate(); const hour = dt.getHours() > 12 ? dt.getHours() - 12 : dt.getHours(); const timePeriod = dt.getHours() > 12 ? ' pm' : ' am'; let minute = dt.getMinutes(); minute = minute < 10 ? `:0${minute}` : `:${minute}`; const fullDate = []; fullDate.push(year, month, dateNum, hour, minute, timePeriod); for (let i = 0; i < fullDate.length; i++) { if (i < 3) { date.innerHTML += '<span>'.concat(fullDate[i], ' </span>'); } else { time.innerHTML += '<span>'.concat(fullDate[i], '</span>'); } }// username string length cutting
-let lengthCut; const textUsers = [...document.querySelectorAll('#js-name')]; const usernames = [...document.querySelectorAll('#js-username')]; textUsers.forEach((user, index) => { if (user.textContent.length >= 12) { lengthCut = '...'; usernames[index].innerHTML = lengthCut; } else if (user.textContent.length > 4) { lengthCut = '@'.concat(user.textContent.substring(0, 4), '...'); usernames[index].innerHTML = lengthCut; } });

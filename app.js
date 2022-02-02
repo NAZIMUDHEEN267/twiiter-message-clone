@@ -12,7 +12,7 @@ const port = process.env.PORT;
 
 // static middleware
 app.use(express.static(`${__dirname}/public`));
-app.use(express.urlencoded({extended: true}));
+app.use(express.urlencoded({ extended: true }));
 
 // view engine set up
 app.set('view engine', 'pug');
@@ -26,4 +26,3 @@ app.use('/', comment);
 app.listen(port, () => {
   console.log('connected');
 });
-

@@ -12,7 +12,7 @@ html(lang="en")
         <link rel="icon" href="Assets/twitter-title.png" type="image/gif" sizes="16x16">
 
         //- stylesheet link
-        link(rel="stylesheet", href="css/comment.css")
+        link(rel="stylesheet", href="build/css/comment.min.css")
         
         title Cristiano Ronaldo
     body#js-body
@@ -89,9 +89,9 @@ html(lang="en")
               .sign-bar 
                 .sign-bar__container 
                   button.login-cta.login-cta_color
-                    a(href="#" class="login-link") Log in 
+                    a(href="/login" class="login-link") Log in 
                   button.sign-in-cta.sign-in-cta_color 
-                    a(href="#" class="sign-link") Sign up
+                    a(href="/sign-in" class="sign-link") Sign up
 
               //- user details 
               .user
@@ -139,7 +139,7 @@ html(lang="en")
                     <img id="js-img"/>
                   </div>
 
-                  form(action="https://google.com", method="post" id="form")
+                  form(action="/", method="post" id="form")
                     
                     <textarea id="js-textarea" class="textarea" name="reply-text" placeholder="Tweet your reply" style="resize:none"></textarea>   
                 .personal__button#js-side-btn
@@ -222,4 +222,4 @@ html(lang="en")
 
                       
         //- script for javascript 
-        script(src="javascript/comment.js" type="module")
+        script(src="build/js/mainComment.js")

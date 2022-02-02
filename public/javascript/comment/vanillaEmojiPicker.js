@@ -1,4 +1,4 @@
-export default function (options) {
+function Emoji(options) {
   this.options = options;
   this.trigger = this.options.trigger.map((item) => item.selector);
   this.insertInto = undefined;
@@ -7757,7 +7757,7 @@ export default function (options) {
             `;
 
       // document.body.insertAdjacentHTML('beforeend', picker);
-      document.querySelector('.reply').insertAdjacentHTML('beforebegin', picker)
+      document.querySelector('.reply').insertAdjacentHTML('beforebegin', picker);
 
       functions.rePositioning(document.querySelector('.fg-emoji-container'));
 
@@ -7895,5 +7895,15 @@ export default function (options) {
     // Event functions
     bindEvents.call(this);
   })();
-};
+}
 
+// calling emojiPicker constructor
+new Emoji({
+  trigger: [
+    {
+      selector: '.emoji-btn',
+      insertInto: ['.textarea'],
+    },
+  ],
+  closeButton: true,
+});

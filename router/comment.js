@@ -8,6 +8,6 @@ router.get('/', (req, res) => {
 
 router.post('/', (req, res) => {
   res.render('comment');
-})
+});
 
 module.exports = router;
