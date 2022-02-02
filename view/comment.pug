@@ -118,7 +118,8 @@ html(lang="en")
               img(src="Assets/post.jpeg", alt="post.jpg")
               
             .side__text
-              | There is no harm in dreaming of becoming the world's best player. It is all about trying to be the best. I will keep working hard to achieve it but it is within my capabilities.
+              p
+                | There is no harm in dreaming of becoming the world's best player. It is all about trying to be the best. I will keep working hard to achieve it but it is within my capabilities.
 
             .side__time 
               .time#js-time
@@ -168,7 +169,7 @@ html(lang="en")
                     button#js-close-btn x
 
                   .search-gif#js-search-gif   
-                    input(type="search", placeholder="search.." required class="gif__search" id="js-gif-search")
+                    input(type="search", placeholder="search.." required class="gif__search" id="js-gif-search" autocomplete="off")
                     button(class="search-btn" id="js-search-btn") 
                       i.fas.fa-search
 

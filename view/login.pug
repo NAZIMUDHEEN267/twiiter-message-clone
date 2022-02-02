@@ -8,4 +8,40 @@ html(lang="en")
         title login
     body
     
-        
+        //-overlay 
+        .overlay
+
+        //- form section
+        section.form 
+            header.form__header 
+                .cross 
+                    span &#10005;
+                .form__logo
+                    img(src="Assets/twitter-logo.png" width="50px")
+            
+            main
+                .form__text
+                    h2 Sign in to Twitter 
+
+                .sign-box 
+                    .google__sign 
+                        img(src="Assets/google.png", alt="google.png")
+                        span sign in with google
+                    .apple__sign 
+                        img(src="Assets/apple-logo.png", alt="apple.png")
+                        span sign in with apple
+                    
+                    .bottom-text 
+                        p or
+
+                    .normal-sign
+                        form(method="post" action="/login") 
+                            input(type="text" autocomplete="on" placeholder="Phone, email address, username" name="user" required)
+                            button(type="submit" class="submit-btn") Next
+                    
+                    .forgot-btn
+                        button
+                            a(href="/login/forgot") Forgot password?
+
+                    p.user-sign Don't have an account? 
+                        a(href="/sign-up" class="sign-link") Sign up 
