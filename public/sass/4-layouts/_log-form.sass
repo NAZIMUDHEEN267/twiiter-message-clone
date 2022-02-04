@@ -4,17 +4,8 @@
 @use '../3-base/buttons' as button
 
 
-body 
-    @include help.body('login')
-
-    .overlay
-        position: absolute
-        height: 100vh 
-        width: 100%
-        background: rgba(help.$black, .2)
-        z-index: 1
-        top: 0
-        left: 0
+.login-page
+    @include help.page('login')
 
     // form section 
     .form

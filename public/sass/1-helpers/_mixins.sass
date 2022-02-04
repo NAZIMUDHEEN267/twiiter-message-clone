@@ -10,10 +10,9 @@
     left: 0
     background-color: lighten(var.$text-grey, 50)    
 
-@mixin body ($param)
+@mixin page ($param)
     @if $param == 'login'
-        background: url("../Assets/twitterbg.png")
-        background-size: cover
+        background: rgba(0,0,0,0.3)
         min-height: 100vh
         display: flex
         align-items: center
@@ -21,9 +20,9 @@
         margin: 0
         box-sizing: border-box
     @else 
-        background: help.$white 
+        background: var.$white 
         scroll-behavior: smooth
-
+        min-height: 100vh
 
 // media queries 
 @mixin media-desk 

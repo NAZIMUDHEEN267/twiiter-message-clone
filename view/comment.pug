@@ -1,226 +1,181 @@
-doctype html
-html(lang="en")
-    head
-        meta(charset="UTF-8")
-        meta(http-equiv="X-UA-Compatible", content="IE=edge")
-        meta(name="viewport", content="width=device-width, initial-scale=1.0")
 
-        //- font awesome link
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+//- layout included
+include layout.pug
+
+.comment-page#js-body
+
+  -let retweet = 17+"k"
+  -let quoteTweet = 799 
+  -let likes = 124+"k"
+  -let comment = 15+"k"
+    
+  //- post-info mixin for repeat using 
+  mixin post-info(showInfo)
+    //- receiving a boolean data, if that's true then show the below post image info
+    -if(showInfo)
+      .image-info
+        ul 
+          li
+            i.far.fa-comment
+            span= comment
+          li
+            i.fas.fa-retweet
+            span= retweet 
+          li 
+            i.far.fa-heart
+            span= likes
+          li 
+            i.far.fa-share-square         
+    -else
+      -if(showInfo == null)
+        .post__info
+          .tweets 
+            p= retweet 
+              span Retweets 
+            p= quoteTweet 
+              span Quote Tweets
+          .likes 
+            p= likes
+            span Likes
+      .post__reply 
+        ul 
+          li
+            i.far.fa-comment
+          li
+            i.fas.fa-retweet
+          li 
+            i.far.fa-heart
+          li 
+            i.far.fa-share-square
+          li.share
+            i.fas.fa-share-alt
+          li.camp-ground
+            i.fas.fa-campground
+  //- page is the parent container
+  .page
+    .overlay#js-overlay
+    //- post section
+    section.post
+      .post__img
+        img(src="Assets/post.jpeg", alt="post.jpg")
+      //- calling post-info mixin
+      +post-info("string")
+    //- side bar for post information like, comments 
+    aside.side#js-side
+      //- header section
+      header.header#js-header
+        .sign-bar 
+          .sign-bar__container 
+            a(href="/login" class="login-cta login-cta_color") Log in 
+            a(href="/sign-in" class="sign-in-cta sign-in-cta_color") Sign up
+        //- user details 
+        .user
+          .user__details
+            .user__img
+              img(src="Assets/profile.jpg", alt="profile.jpg") 
+            .user__name 
+              h3.name cristiano ronaldo 
+                span.blue_tick 
+                  img(src="Assets/blue_tick.png", alt="blue_tick.png") 
+              h4.id @Cristiano
+          .menu-btn#js-menu-btn
+            i.fas.fa-ellipsis-h
+          .menu#js-menu.hidden
+            li 
+              i.fas.fa-code 
+              p Embed Tweet
+            li 
+              i.far.fa-address-card
+              p View hidden replies
         
-        //- favicon icon 
-        <link rel="icon" href="Assets/twitter-title.png" type="image/gif" sizes="16x16">
-
-        //- stylesheet link
-        link(rel="stylesheet", href="build/css/comment.min.css")
+      .side__img
+        img(src="Assets/post.jpeg", alt="post.jpg")
         
-        title Cristiano Ronaldo
-    body#js-body
-
-        -let retweet = 17+"k"
-        -let quoteTweet = 799 
-        -let likes = 124+"k"
-        -let comment = 15+"k"
-          
-
-        //- post-info mixin for repeat using 
-        mixin post-info(showInfo)
-
-          //- receiving a boolean data, if that's true then show the below post image info
-          -if(showInfo)
-            .image-info
-              ul 
-                li
-                  i.far.fa-comment
-                  span= comment
-                li
-                  i.fas.fa-retweet
-                  span= retweet 
-                li 
-                  i.far.fa-heart
-                  span= likes
-                li 
-                  i.far.fa-share-square         
-          -else
-            -if(showInfo == null)
-              .post__info
-                .tweets 
-                  p= retweet 
-                    span Retweets 
-                  p= quoteTweet 
-                    span Quote Tweets
-                .likes 
-                  p= likes
-                  span Likes
-
-            .post__reply 
-              ul 
-                li
-                  i.far.fa-comment
-                li
-                  i.fas.fa-retweet
-                li 
-                  i.far.fa-heart
-                li 
-                  i.far.fa-share-square
-                li.share
-                  i.fas.fa-share-alt
-                li.camp-ground
-                  i.fas.fa-campground
-
-        //- page is the parent container
-        .page
-          .overlay#js-overlay
-
-          //- post section
-          section.post
-
-            .post__img
-              img(src="Assets/post.jpeg", alt="post.jpg")
-
-            //- calling post-info mixin
-            +post-info("string")
-
-          //- side bar for post information like, comments 
-          aside.side#js-side
-
-            //- header section
-            header.header#js-header
-              .sign-bar 
-                .sign-bar__container 
-                  button.login-cta.login-cta_color
-                    a(href="/login" class="login-link") Log in 
-                  button.sign-in-cta.sign-in-cta_color 
-                    a(href="/sign-in" class="sign-link") Sign up
-
-              //- user details 
-              .user
-                .user__details
-                  .user__img
-                    img(src="Assets/profile.jpg", alt="profile.jpg") 
-                  .user__name 
-                    h3.name cristiano ronaldo 
-                      span.blue_tick 
-                        img(src="Assets/blue_tick.png", alt="blue_tick.png") 
-                    h4.id @Cristiano
-
-                .menu-btn#js-menu-btn
-                  i.fas.fa-ellipsis-h
-                .menu#js-menu.hidden
+      .side__text
+        p
+          | There is no harm in dreaming of becoming the world's best player. It is all about trying to be the best. I will keep working hard to achieve it but it is within my capabilities.
+      .side__time 
+        .time#js-time
+        .date#js-date
+        .device Twitter&nbsp;for&nbsp;iPhone
+      //- calling post-info mixin
+      +post-info(null)
+      //- comment section
+      section.comment
+        .personal#js-personal
+          .personal__logo 
+            img(src="Assets/personal-logo.png", alt="person.jpg") 
+          .personal__reply
+            <div class="show-selection" id="js-show-selection">
+              <img id="js-img"/>
+            </div>
+            form(action="/", method="post" id="form")
+              
+              <textarea id="js-textarea" class="textarea" name="reply-text" placeholder="Tweet your reply" style="resize:none"></textarea>   
+          .personal__button#js-side-btn
+              button(class="personal__cta" style="background:#8dd4f0;") reply
+        //- reply input for person
+        .personal__input#js-personal-input
+          ul 
+            <button style="background: transparent; border: none;width:1px;" onclick="document.getElementById('getFile').click()">
+              i.far.fa-image(style="font-size: 1rem")
+            </button>
+            <input type='file' id="getFile" style="display:none">
+            li.gif#js-gif-btn
+              img(src="Assets/gif.png", alt="gif.png" name="gif")
+            li.far.fa-smile.emoji-btn
+          .personal__button
+            button(type="submit" form="form" class="personal__cta" id="js-personal__cta") reply
+        
+        //- gif images
+        .gif-block#js-gif-block
+          .search-events 
+            .close-btn
+              button#js-close-btn x
+            .search-gif#js-search-gif   
+              input(type="search", placeholder="search.." required class="gif__search" id="js-gif-search" autocomplete="off")
+              button(class="search-btn" id="js-search-btn") 
+                i.fas.fa-search
+          .gif__images#js-gif__images
+          .show-more#js-show-more 
+            p show more
+        
+        //- users list   
+        -let users = ['micheal jackson', 'messi','steve jobs','elon musk','barak obama']
+        
+        //- looping each users comment
+        each user,index in users 
+          .reply
+            .user 
+              .user__img 
+                img(src=`Assets/${index}.jpg`, alt=`${user}.jpg`)
+              .user__details
+                ul#js-list
+                  //- name  
+                  li#js-name= user
+                  //- username length cutting
+                  li#js-username
+                
+                  //- date 
                   li 
-                    i.fas.fa-code 
-                    p Embed Tweet
-                  li 
-                    i.far.fa-address-card
-                    p View hidden replies
-              
-            .side__img
-              img(src="Assets/post.jpeg", alt="post.jpg")
-              
-            .side__text
-              p
-                | There is no harm in dreaming of becoming the world's best player. It is all about trying to be the best. I will keep working hard to achieve it but it is within my capabilities.
-
-            .side__time 
-              .time#js-time
-              .date#js-date
-              .device Twitter&nbsp;for&nbsp;iPhone
-
-            //- calling post-info mixin
-            +post-info(null)
-
-            //- comment section
-            section.comment
-              .personal#js-personal
-                .personal__logo 
-                  img(src="Assets/personal-logo.png", alt="person.jpg") 
-                .personal__reply
-
-                  <div class="show-selection" id="js-show-selection">
-                    <img id="js-img"/>
-                  </div>
-
-                  form(action="/", method="post" id="form")
-                    
-                    <textarea id="js-textarea" class="textarea" name="reply-text" placeholder="Tweet your reply" style="resize:none"></textarea>   
-                .personal__button#js-side-btn
-                    button(class="personal__cta" style="background:#8dd4f0;") reply
-
-              //- reply input for person
-              .personal__input#js-personal-input
-                ul 
-                  <button style="background: transparent; border: none;width:1px;" onclick="document.getElementById('getFile').click()">
-                    i.far.fa-image(style="font-size: 1rem")
-                  </button>
-                  <input type='file' id="getFile" style="display:none">
-                  li.gif#js-gif-btn
-                    img(src="Assets/gif.png", alt="gif.png" name="gif")
-                  li.far.fa-smile.emoji-btn
-
-                .personal__button
-                  button(type="submit" form="form" class="personal__cta" id="js-personal__cta") reply
-
-              
-              //- gif images
-              .gif-block#js-gif-block
-
-                .search-events 
-                  .close-btn
-                    button#js-close-btn x
-
-                  .search-gif#js-search-gif   
-                    input(type="search", placeholder="search.." required class="gif__search" id="js-gif-search" autocomplete="off")
-                    button(class="search-btn" id="js-search-btn") 
-                      i.fas.fa-search
-
-                .gif__images#js-gif__images
-
-                .show-more#js-show-more 
-                  p show more
-              
-              //- users list   
-              -let users = ['micheal jackson', 'messi','steve jobs','elon musk','barak obama']
-              
-              //- looping each users comment
-              each user,index in users 
-                .reply
-                  .user 
-                    .user__img 
-                      img(src=`Assets/${index}.jpg`, alt=`${user}.jpg`)
-                    .user__details
-
-                      ul#js-list
-                        //- name  
-                        li#js-name= user
-
-                        //- username length cutting
-                        li#js-username
-                      
-                        //- date 
-                        li 
-                          -const day = Math.ceil(Math.random() * 20)
-                          -let dt = new Date()
-                          -const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', "Dec"]
-                          i= day+' ,'+ months[dt.getMonth()] +' '
-                            em= dt.getFullYear()
-
-                        li.menu
-                          i.fas.fa-ellipsis-h(id=`js-menu-btn${index}`)
-     
-                          li(id=`js-menu-box${index}` class="menu__box-others hidden")
-                            i.fas.fa-code
-                            p Embed Tweet
-
-
-                      .owner
-                        li Replying to 
-                          span.tag @Cristiano
-                      .message 
-                        p Lorem ipsum dolor sit, amet consectetur adipisicing elit. Totam rem magnam saepe possimus nisi velit, quia ad quae voluptate neque architecto eos sunt delectus, voluptates similique suscipit atque. Aliquid, consequatur!
-
-                  //- passing falsy value
-                  +post-info("") 
-
-                      
-        //- script for javascript 
-        script(src="build/js/mainComment.js")
+                    -const day = Math.ceil(Math.random() * 20)
+                    -let dt = new Date()
+                    -const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', "Dec"]
+                    i= day+' ,'+ months[dt.getMonth()] +' '
+                      em= dt.getFullYear()
+                  li.menu
+                    i.fas.fa-ellipsis-h(id=`js-menu-btn${index}`)
+                    li(id=`js-menu-box${index}` class="menu__box-others hidden")
+                      i.fas.fa-code
+                      p Embed Tweet
+                .owner
+                  li Replying to 
+                    span.tag @Cristiano
+                .message 
+                  p Lorem ipsum dolor sit, amet consectetur adipisicing elit. Totam rem magnam saepe possimus nisi velit, quia ad quae voluptate neque architecto eos sunt delectus, voluptates similique suscipit atque. Aliquid, consequatur!
+            //- passing falsy value
+            +post-info("") 
+            
+                
+  //- script for javascript 
+  script(src="build/js/main.min.js")

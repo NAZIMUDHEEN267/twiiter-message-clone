@@ -1,11 +1,44 @@
 
-@use '../1-helpers/variables' as var
+@use '../1-helpers/1-helper' as help
 
-.login-link
-    color: var.$primary
+%user-btn
+    width: calc(90% / 2)
+    padding: help.padding(10, 20, 1)
+    border: none
+    border-radius: 30px
+    font-weight: 600
+    text-align: center
 
-.sign-link
-    color: var.$white 
+    // mobile view for buttons
+    @include help.media-mob 
+        padding: help.padding(5,10,1) 
+        font-size: 12px
+            
+.login-cta 
+    @extend %user-btn
+    color: help.$primary
+    background: help.$white
+    border: 1px solid help.$text-grey
+    margin-right: 10px
+    color: help.$primary 
+
+.login-cta_color
+    transition: ease-in .01s .01s
+    &:hover
+        background: lighten(help.$primary, 20) 
+        color: help.$white 
+
+.sign-in-cta 
+    @extend %user-btn
+    color: help.$white
+    background: help.$primary
+
+.sign-in-cta_color
+    transition: ease-in .01s .01s
+    &:hover
+        background: help.$white
+        border: 1px solid help.$primary
+        color: help.$primary
 
 .form :link 
     text-decoration: none
@@ -14,5 +47,5 @@
     color: #111
 
 .sign-link
-    color: var.$primary
+    color: help.$primary
     font-size: 1rem

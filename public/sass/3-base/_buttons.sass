@@ -1,51 +1,6 @@
 @use '../1-helpers/1-helper' as help
 
-
 // ========= header buttons 
-%user-btn
-    width: calc(90% / 2)
-    padding: help.padding(10, 20, 1)
-    border: none
-    border-radius: 30px
-    cursor: pointer
-    font-weight: 600
-
-    // mobile view for buttons
-    @include help.media-mob 
-        padding: help.padding(5,10,1) 
-        font-size: 12px
-
-            
-.login-cta 
-    @extend %user-btn
-    color: help.$primary
-    background-color: help.$white
-    border: 1px solid help.$text-grey
-    margin-right: 10px
-
-    &:hover .login-link
-        color: help.$white 
-
-.login-cta_color
-    transition: ease-in .01s .01s
-    &:hover
-        background-color: lighten(help.$primary, 20) 
-
-.sign-in-cta 
-    @extend %user-btn
-    color: help.$white
-    background-color: help.$primary
-
-    &:hover .sign-link 
-        color: help.$primary
-
-.sign-in-cta_color
-    transition: ease-in .01s .01s
-    &:hover
-        background-color: help.$white
-        border: 1px solid help.$primary
-
-
 // ========= personal button
 .personal__cta  
     color: help.$white 

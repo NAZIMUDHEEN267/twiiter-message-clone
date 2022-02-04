@@ -12,12 +12,14 @@ let showClicked = false;
 function loadImage(imgSize, length) {
   let imgList;
   for (let i = 1; i <= length; i += 2) {
-    imgList += `<div class="images">
-                            <img src="${imgSize[i].images.fixed_width.url}"/>
-                            <img src="${imgSize[i + 1].images.fixed_width.url}"/>
-                        </div>`;
+    imgList += `
+        <div class="images">
+        ${console.log(imgSize[i].images.fixed_width.url)}
+          <img src="${imgSize[i].images.fixed_width.url}"/>
+          <img src="${imgSize[i + 1].images.fixed_width.url}"/>
+        </div>
+        `;
   }
-
   gif.innerHTML = imgList;
 }
 
@@ -28,7 +30,7 @@ xhr.onreadystatechange = function () {
   if (this.readyState == 4 && this.status == 200) {
     const response = this.responseText;
     const apiData = JSON.parse(response);
-    loadImage(apiData.data, 7);
+    loadImage(apiData.data, 1);
 
     showBtn.addEventListener('click', () => {
       showClicked = true;
@@ -57,7 +59,7 @@ searchBtn.addEventListener('click', () => {
         showBtn.addEventListener('click', () => {
           showClicked = true;
           showBtn.style.display = 'none';
-          loadImage(object.data, object.data.length - 2);
+          loadImage(object.data, object.data.length);
         });
       })
       .catch((err) => console.log(err));
@@ -68,8 +70,8 @@ searchBtn.addEventListener('click', () => {
 
 gif.addEventListener('scroll', (event) => {
   if (
-    event.target.scrollTop >= event.target.clientHeight / 1.3
-        && showClicked !== true
+    event.target.scrollTop >= event.target.clientHeight / 2
+    && showClicked !== true
   ) {
     showBtn.style.display = 'block';
   } else {

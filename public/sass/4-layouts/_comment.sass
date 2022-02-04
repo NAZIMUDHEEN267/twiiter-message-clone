@@ -3,301 +3,298 @@
 
 // ======== comment layout
 
-body 
-    @include help.body('comment')
+.comment-page 
+    @include help.page('comment')
 
-
-.comment
-    overflow-x: hidden
-    
-    // personal comment
-    .personal
-        display: flex
-        padding: 20px
-        align-items: center
-
-        &__logo 
-            flex-basis: 20%
-            height: 40px
-            object-fit: cover
-            margin: 0 5px
-            align-self: start
-
-            img
-                width: 100%
-                height: 100%
-                border-radius: 50%
-
-        &__reply
-            flex-basis: 80%
-
-            .show-selection
-                background: lighten(help.$primary, 30)
-                padding: 2px
-                border-radius: 5px
-                display: inline-block
-
-                img 
-                    width:90px
-                    height: 90px
-                    border-radius: inherit
-
-            form
-                display: flex
-                justify-content: center
-
-                // hiding scrollbar 
-                &::-webkit-scrollbar
-                    display: none
-
-                textarea 
-                    border: none 
-                    width: 100%
-                    height: 46px
-                    outline: none 
-                    padding: 8px
-                    gap: 5px
-                    font-size: 1rem
-                    display: block
-                
-                ::placeholder 
-                    font-size: .8rem 
-                    color: darken(help.$text-grey, 25)  
-
-
-    // personal input messages or emoji/gif
-    .personal__input
-        display: flex
-        padding: 0 10px
-
-        ul 
-            display: flex 
-            flex: 3
-            justify-content: start
-            gap: 20px
-            align-items: center
-            padding-left: unset
-            
-            & :hover
-                color: lighten(help.$primary, 30)
-
-            .gif 
-                width: 20px
-                margin-top: 5px
-
-                img 
-                    width: 100%
-
-        .personal__cta 
-            text-align: center
-            flex: 1
-
-    // gif section
-    .gif-block 
-        margin: 5px 10px 10px
-        background: rgba(help.$black, .2)
-        padding-bottom: 10px
-        display: none
-        border-radius: 5px
-
-        .search-events
-            width: 100%
-
-            .close-btn
-                display: flex 
-                justify-content: end 
-
-                button
-                    color: white
-                    border: none
-                    background: crimson
-                    outline: none
-                    cursor: pointer
-                    padding: 5px 10px
-                    font-weight: 600
-                    font-size: 16px
-                    border-radius: 0 5px 0 0
-
-            .search-gif 
-                display: flex
-                margin: 10px 0
-                padding: 0 10px
-
-                .gif__search
-                    flex: 1
-                    padding: 10px
-                    border: 1px solid help.$primary 
-                    border-right: none
-                    outline: none
-
-                .search-btn 
-                    padding: 10px
-                    font-weight: 500
-                    cursor: pointer
-                    border-left: none
-                    border: 1px solid help.$primary
-                    outline: none
-                    border-left: none
-                    background: white
-                
-
-        //gif images 
-        .gif__images    
-            width: calc(100% - 10px)
-            margin: auto
-            height: 320px 
-            overflow-y: scroll
-            position: relative
-            overflow-x: hidden
-
-            scrollbar-width: 12px 
-            scrollbar-color: help.$black help.$white 
-
-            &::-webkit-scrollbar 
-                width: 12px
-
-            &::-webkit-scrollbar-track 
-                 background: help.$white
-
-
-            &::-webkit-scrollbar-thumb 
-                background: red
-
-
-            //width reduce in tab view
-            @include help.media-tab 
-                width: calc(100% - 20px)
-
-            .images
-                display: flex 
-                width: 100%
-                margin: auto
-
-                // height reducing 
-                @include help.media-tab 
-                    height: 120px
-
-                @include help.media-mob 
-                    height: 100px
-                    flex-wrap: wrap
-
-                img 
-                    width: 50%
-                    height: 150px
-                    object-fit: fill
-                    margin: 2px
-
-                    @include help.media-mob
-                        width: 100%
+    .comment
+        overflow-x: hidden
         
-        .show-more
-            width: 95%
-            cursor: pointer
-            background: rgba(help.$primary,.8)
-            margin-top: 10px
-            margin: auto
+        // personal comment
+        .personal
+            display: flex
+            padding: 20px
+            align-items: center
+
+            &__logo 
+                flex-basis: 20%
+                height: 40px
+                object-fit: cover
+                margin: 0 5px
+                align-self: start
+
+                img
+                    width: 100%
+                    height: 100%
+                    border-radius: 50%
+
+            &__reply
+                flex-basis: 80%
+
+                .show-selection
+                    background: lighten(help.$primary, 30)
+                    padding: 2px
+                    border-radius: 5px
+                    display: inline-block
+
+                    img 
+                        width:90px
+                        height: 90px
+                        border-radius: inherit
+
+                form
+                    display: flex
+                    justify-content: center
+
+                    // hiding scrollbar 
+                    &::-webkit-scrollbar
+                        display: none
+
+                    textarea 
+                        border: none 
+                        width: 100%
+                        height: 46px
+                        outline: none 
+                        padding: 8px
+                        gap: 5px
+                        font-size: 1rem
+                        display: block
+                    
+                    ::placeholder 
+                        font-size: .8rem 
+                        color: darken(help.$text-grey, 25)  
+
+
+        // personal input messages or emoji/gif
+        .personal__input
+            display: flex
+            padding: 0 10px
+
+            ul 
+                display: flex 
+                flex: 3
+                justify-content: start
+                gap: 20px
+                align-items: center
+                padding-left: unset
+                
+                & :hover
+                    color: lighten(help.$primary, 30)
+
+                .gif 
+                    width: 20px
+                    margin-top: 5px
+
+                    img 
+                        width: 100%
+
+            .personal__cta 
+                text-align: center
+                flex: 1
+
+        // gif section
+        .gif-block 
+            margin: 5px 10px 10px
+            background: rgba(help.$black, .2)
+            padding-bottom: 10px
             display: none
             border-radius: 5px
 
-            p
-                text-align: center 
-                font-weight: 500
-                padding: 10px
-                color: help.$white
-                border: 1px solid help.$primary
+            .search-events
+                width: 100%
 
-                &:hover 
-                    border: 1px solid help.$primary
-                    background: help.$white
-                    color: help.$primary
-    
-    // other users comment
-    .reply 
-        padding: 10px
-        position: relative
+                .close-btn
+                    display: flex 
+                    justify-content: end 
 
-        .user
-            display: flex
+                    button
+                        color: white
+                        border: none
+                        background: crimson
+                        outline: none
+                        cursor: pointer
+                        padding: 5px 10px
+                        font-weight: 600
+                        font-size: 16px
+                        border-radius: 0 5px 0 0
 
-            &__img > img  
-                height: 60px
-                width: 60px 
-                border-radius: 50%
-                object-fit: cover
+                .search-gif 
+                    display: flex
+                    margin: 10px 0
+                    padding: 0 10px
 
-            &__details
+                    .gif__search
+                        flex: 1
+                        padding: 10px
+                        border: 1px solid help.$primary 
+                        border-right: none
+                        outline: none
+
+                    .search-btn 
+                        padding: 10px
+                        font-weight: 500
+                        cursor: pointer
+                        border-left: none
+                        border: 1px solid help.$primary
+                        outline: none
+                        border-left: none
+                        background: white
+                    
+
+            //gif images 
+            .gif__images    
+                width: calc(100% - 10px)
+                margin: auto
+                height: 320px 
+                overflow-y: scroll
                 position: relative
-                margin-left: 10px
-                font-size: .9rem
-                width: 100% 
+                overflow-x: hidden
+
+                scrollbar-width: 12px 
+                scrollbar-color: help.$black help.$white 
+
+                &::-webkit-scrollbar 
+                    width: 12px
+
+                &::-webkit-scrollbar-track 
+                    background: help.$white
+
+
+                &::-webkit-scrollbar-thumb 
+                    background: red
+
+
+                //width reduce in tab view
+                @include help.media-tab 
+                    width: calc(100% - 20px)
+
+                .images
+                    display: flex 
+                    width: 100%
+                    margin: auto
+
+                    // height reducing 
+                    @include help.media-tab 
+                        height: 120px
+
+                    @include help.media-mob 
+                        height: 100px
+                        flex-wrap: wrap
+
+                    img 
+                        width: 50%
+                        height: 150px
+                        object-fit: fill
+                        margin: 2px
+
+                        @include help.media-mob
+                            width: 100%
+            
+            .show-more
+                width: 95%
+                cursor: pointer
+                background: rgba(help.$primary,.8)
+                margin-top: 10px
+                margin: auto
+                border-radius: 5px
+
+                p
+                    text-align: center 
+                    font-weight: 500
+                    padding: 10px
+                    color: help.$white
+                    border: 1px solid help.$primary
+
+                    &:hover 
+                        border: 1px solid help.$primary
+                        background: help.$white
+                        color: help.$primary
+        
+        // other users comment
+        .reply 
+            padding: 10px
+            position: relative
+
+            .user
+                display: flex
+
+                &__img > img  
+                    height: 60px
+                    width: 60px 
+                    border-radius: 50%
+                    object-fit: cover
+
+                &__details
+                    position: relative
+                    margin-left: 10px
+                    font-size: .9rem
+                    width: 100% 
+
+                    ul 
+                        display: flex
+                        padding-left: 0
+                        width: inherit
+
+                        :not(:nth-child(2))
+                            color: help.$black
+
+                        li 
+                            margin-right: 5px
+                            font-weight: 600
+                            font-size: 14px
+                            
+                        // menu button (3 dots)
+                        .menu
+                            color: help.$text-grey
+                            margin-left: auto
+
+                            &__box-others
+                                position: absolute
+                                box-shadow: 0px 3px 10px rgba(help.$black, .3)
+                                right: 2px
+                                padding: 10px 15px
+                                z-index: 5
+                                background: help.$white
+                                border-radius: 4px
+                                
+                                p 
+                                    display: inline
+                                    padding-left: 5px
+                                    font-weight: normal
+                            i
+                                position: absolute
+                                top: 0 
+                                right: 0
+                                padding: 9px
+                                border-radius: 50%
+                                &:hover 
+                                    color: help.$primary 
+                                    background: lighten(help.$primary, 62)
+
+                    // replying for message creator 
+                    .owner 
+                        margin-top: 5px
+                        .tag 
+                            color: help.$primary
+
+                    // message content
+                    .message 
+                        margin-top: 5px
+            
+            // post info
+            .post__reply 
+                width: 100%
 
                 ul 
-                    display: flex
-                    padding-left: 0
                     width: inherit
 
-                    :not(:nth-child(2))
-                        color: help.$black
+                    :not(:last-child)
+                        margin-left: 10px
 
-                    li 
-                        margin-right: 5px
-                        font-weight: 600
-                        font-size: 14px
-                        
-                    // menu button (3 dots)
-                    .menu
-                        color: help.$text-grey
+                    :last-child
                         margin-left: auto
+            
 
-                        &__box-others
-                            position: absolute
-                            box-shadow: 0px 3px 10px rgba(help.$black, .3)
-                            right: 2px
-                            padding: 10px 15px
-                            z-index: 5
-                            background: help.$white
-                            border-radius: 4px
-                            
-                            p 
-                                display: inline
-                                padding-left: 5px
-                                font-weight: normal
-
-                        i
-                            position: absolute
-                            top: 0 
-                            right: 0
-                            padding: 9px
-                            border-radius: 50%
-                            &:hover 
-                                color: help.$primary 
-                                background: lighten(help.$primary, 62)
-
-                // replying for message creator 
-                .owner 
-                    margin-top: 5px
-                    .tag 
-                        color: help.$primary
-
-                // message content
-                .message 
-                    margin-top: 5px
-        
-        // post info
-        .post__reply 
-            width: 100%
-
-            ul 
-                width: inherit
-
-                :not(:last-child)
-                    margin-left: 10px
-
-                :last-child
-                    margin-left: auto
-        
-
-// =========== emoji container
-.fg-emoji-container
-    max-width: 350px !important
-    margin: auto
+    // =========== emoji container
+    .fg-emoji-container
+        max-width: 350px !important
+        margin: auto

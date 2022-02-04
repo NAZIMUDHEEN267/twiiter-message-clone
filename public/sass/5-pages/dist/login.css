@@ -190,7 +190,7 @@
   }
 }
 .sign-in-cta, .login-cta {
-  width: 45%;
+  width: calc(90% / 2);
   padding: 10px 20px;
   border: none;
   border-radius: 30px;
@@ -246,5 +246,3 @@
   color: #0878a1;
   font-size: 1rem;
 }
-
-/*# sourceMappingURL=login.css.map */

@@ -21,8 +21,8 @@ module.exports = function (grunt) {
         files: [
           {
             expand: true,
-            cwd: 'public/css',
-            src: ['*.css', '!*.min.css'],
+            cwd: 'public/build/css',
+            src: ['main.min.css'],
             dest: 'public/build/css/',
             ext: '.min.css',
           },
@@ -37,7 +37,7 @@ module.exports = function (grunt) {
           {
             expand: true,
             cwd: 'public/build/js',
-            src: 'mainComment.js',
+            src: 'main.min.js',
             dest: 'public/build/js/',
           },
         ],
@@ -54,24 +54,26 @@ module.exports = function (grunt) {
     },
 
     concat: {
-      dist: {
+      dist1: {
         src: 'public/javascript/comment/*.js',
-        dest: 'public/build/js/mainComment.js',
+        dest: 'public/build/js/main.min.js',
+      },
+      dist2: {
+        src: ['public/css/*.css', '!.css.map'],
+        dest: 'public/build/css/main.min.css',
       },
     },
 
     // watch task
     watch: {
       cssmin: {
-        files: ['public/css/.*css', '!.min.css'],
+        files: ['public/build/css/css.min.css'],
         tasks: ['cssmin'],
       },
 
       uglify: {
         files: [
-          'public/build/js/mainComment.js',
-          'public/build/js/mainLogin.js',
-          'public/build/js/mainSignIn.js',
+          'public/build/js/main.min.js',
         ],
         tasks: ['uglify'],
       },
@@ -86,7 +88,7 @@ module.exports = function (grunt) {
         tasks: ['eslint'],
       },
       concat: {
-        files: ['public/javascript/comment/*.js'],
+        files: ['public/javascript/comment/*.js', 'public/css/*.css', '!.css.map'],
         tasks: ['concat'],
       },
     },

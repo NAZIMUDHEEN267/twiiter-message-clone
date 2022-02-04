@@ -1,47 +1,39 @@
-doctype html
-html(lang="en")
-    head
-        meta(charset="UTF-8")
-        meta(http-equiv="X-UA-Compatible" content="IE=edge")
-        meta(name="viewport" content="width=device-width, initial-scale=1.0")
-        link(rel="stylesheet", href="css/login.css")
-        title login
-    body
-    
-        //-overlay 
-        .overlay
 
-        //- form section
-        section.form 
-            header.form__header 
-                .cross 
-                    span &#10005;
-                .form__logo
-                    img(src="Assets/twitter-logo.png" width="50px")
-            
-            main
-                .form__text
-                    h2 Sign in to Twitter 
+//- layout added
+include ./layout.pug
 
-                .sign-box 
-                    .google__sign 
-                        img(src="Assets/google.png", alt="google.png")
-                        span sign in with google
-                    .apple__sign 
-                        img(src="Assets/apple-logo.png", alt="apple.png")
-                        span sign in with apple
-                    
-                    .bottom-text 
-                        p or
 
-                    .normal-sign
-                        form(method="post" action="/login") 
-                            input(type="text" autocomplete="on" placeholder="Phone, email address, username" name="user" required)
-                            button(type="submit" class="submit-btn") Next
-                    
-                    .forgot-btn
-                        button
-                            a(href="/login/forgot") Forgot password?
-
-                    p.user-sign Don't have an account? 
-                        a(href="/sign-up" class="sign-link") Sign up 
+.login-page
+    //-overlay 
+    .overlay 
+    //- form section
+    section.form 
+        header.form__header 
+            .cross 
+                span &#10005;
+            .form__logo
+                img(src="Assets/twitter-logo.png" width="50px")
+        
+        main
+            .form__text
+                h2 Sign in to Twitter
+            .sign-box 
+                .google__sign 
+                    img(src="Assets/google.png", alt="google.png")
+                    span sign in with google
+                .apple__sign 
+                    img(src="Assets/apple-logo.png", alt="apple.png")
+                    span sign in with apple
+                
+                .bottom-text 
+                    p or
+                .normal-sign
+                    form(method="post" action="/login") 
+                        input(type="text" autocomplete="on" placeholder="Phone, email address, username" name="user" required)
+                        button(type="submit" class="submit-btn") Next
+                
+                .forgot-btn
+                    button
+                        a(href="/login/forgot") Forgot password
+                p.user-sign Don't have an account? 
+                    a(href="/sign-up" class="sign-link") Sign up 

@@ -67,7 +67,7 @@ li {
   }
 }
 .sign-in-cta, .login-cta {
-  width: 45%;
+  width: calc(90% / 2);
   padding: 10px 20px;
   border: none;
   border-radius: 30px;
@@ -919,5 +919,3 @@ li {
     border-radius: 0 !important;
   }
 }
-
-/*# sourceMappingURL=comment.css.map */

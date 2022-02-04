@@ -10,4 +10,12 @@ router.post('/login', (req, res) => {
   res.render('comment');
 });
 
+router.get('/next', (req, res) => {
+  res.render('next');
+});
+
+router.get('/forgot', (req, res) => {
+  res.render('forgot');
+});
+
 module.exports = router;
