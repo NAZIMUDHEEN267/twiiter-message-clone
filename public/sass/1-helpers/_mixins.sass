@@ -11,8 +11,8 @@
     background-color: lighten(var.$text-grey, 50)    
 
 @mixin page ($param)
-    @if $param == 'login'
-        background: rgba(0,0,0,0.3)
+    @if $param == 'form'
+        background: rgba(0,0,0,0.2)
         min-height: 100vh
         display: flex
         align-items: center
@@ -52,3 +52,47 @@
     margin-left: 5px 
     text-transform: capitalize
     font-size: 12px
+
+// used for 2 form pages sign-up, login
+@mixin form 
+    body
+        @include page('form')
+
+    // form section 
+    .form
+        width: 550px
+        max-width: 600px
+        margin: auto
+        height: 80vh
+        background: var.$white
+        display: flex
+        flex-direction: column
+        align-items: center
+        position: relative
+        padding: 20px
+        border-radius: 20px
+        z-index: 2
+        overflow-x: hidden
+
+        .form__header 
+            width: 100%
+            display: flex
+        
+            .cross 
+                width: 50%
+                align-self: stretch
+
+                span
+                    padding: 5px 8px
+                    border-radius: 50%
+                    cursor: pointer
+                    font-size: 1.2rem
+                    font-weight: 500
+
+                    &:hover 
+                        background: rgba(0,0,0,0.2)
+            
+            .form__logo > img   
+                height: 28px
+                width: 23px 
+                object-fit: cover

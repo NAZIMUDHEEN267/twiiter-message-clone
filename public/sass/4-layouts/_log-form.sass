@@ -4,151 +4,100 @@
 @use '../3-base/buttons' as button
 
 
-.login-page
-    @include help.page('login')
+@include help.form
 
-    // form section 
-    .form
-        width: 550px
-        max-width: 600px
+// main section
+main 
+    text-align: center
+    overflow: scroll
+    width: 100%
+    .form__text 
+        margin: 5px 0px
+    .sign-box 
+        padding: 15px 5px 5px 
+        min-height: 60vh
+        width: 250px
         margin: auto
-        height: 80vh
-        background: help.$white
-        display: flex
-        flex-direction: column
-        align-items: center
-        position: relative
-        padding: 20px
-        border-radius: 20px
-        z-index: 2
-        overflow-x: hidden
-
-        .form__header 
+        .google__sign, .apple__sign
+            height: 40px
+            border: 1px solid rgba(help.$text-grey, .4)
             width: 100%
-            display: flex
+            border-radius: 30px
+            margin: 18px 0
+            font-size: 15px
+            display: flex 
+            align-items: center
+            justify-content: center
+            font-weight: 600
+            cursor: pointer
+            img 
+                width: 20px
+                margin-right: 4px
+            
+        .google__sign 
+            color: rgba(help.$text-grey, .7)
         
-            .cross 
-                width: 50%
-                align-self: stretch
-
-                span
-                    padding: 5px 8px
-                    border-radius: 50%
-                    cursor: pointer
-                    font-size: 1.2rem
-                    font-weight: 500
-
-                    &:hover 
-                        background: rgba(0,0,0,0.2)
+        .apple__sign 
+            color: initial
+            position: relative
             
-            .form__logo > img   
-                height: 28px
-                width: 23px 
-                object-fit: cover
-
-        // main section
-        main 
-            text-align: center
-            overflow: scroll
-            width: 100%
-
-            .form__text 
-                margin: 5px 0px
-
-            .sign-box 
-                padding: 15px 5px 5px 
-                min-height: 60vh
-                width: 250px
-                margin: auto
-
-                .google__sign, .apple__sign
-                    height: 40px
-                    border: 1px solid rgba(help.$text-grey, .4)
-                    width: 100%
-                    border-radius: 30px
-                    margin: 18px 0
-                    font-size: 15px
-                    display: flex 
-                    align-items: center
-                    justify-content: center
-                    font-weight: 600
-                    cursor: pointer
-
-                    img 
-                        width: 20px
-                        margin-right: 4px
-                    
-                .google__sign 
-                    color: rgba(help.$text-grey, .7)
-                
-                .apple__sign 
-                    color: initial
-                    position: relative
-                    
-                    &:hover 
-                        background: #e6e2d8
-
-                .bottom-text 
-                    position: relative
-                    margin: 10px 
-                    font-weight: 600
-                    letter-spacing: .4px
-
-                    &::after 
-                        content: ""
-                        position: absolute
-                        height: 1px 
-                        width: 45%
-                        top: 50%
-                        right: 0
-                        background: #bab8b3
-                        transform: translateX(5px)
-
-                    &::before 
-                        content: ""
-                        height: 1px 
-                        width: 45%
-                        left: 0
-                        top: 50%
-                        position: absolute
-                        background: #bab8b3
-                        transform: translateX(-5px)
-
-            .normal-sign 
-                input 
-                    width: 90%
-                    padding: 15px 10px
-                    border: 1px solid #bab8b3
-                    outline-color: help.$primary    
-                    font-size: .9rem
-                
-                ::placeholder 
-                    font-size: .9rem
-                
-                button 
-                    @extend .google__sign
-                    background: #000
-                    color: #fff !important
-
-                    &:hover 
-                        background: #111
-            
-            .forgot-btn 
-                button 
-                    @extend .google__sign 
-                    background: #fff
-                    color: #000
-
-                    &:hover 
-                        background: #e6e2d8
-                        border: none
-            .user-sign
-                padding-top: 30px 
-                font-size: 1rem
-                color: grey
-                text-align: left
-
-
+            &:hover 
+                background: #e6e2d8
+        .bottom-text 
+            position: relative
+            margin: 10px 
+            font-weight: 600
+            letter-spacing: .4px
+            &::after 
+                content: ""
+                position: absolute
+                height: 1px 
+                width: 45%
+                top: 50%
+                right: 0
+                background: #bab8b3
+                transform: translateX(5px)
+            &::before 
+                content: ""
+                height: 1px 
+                width: 45%
+                left: 0
+                top: 50%
+                position: absolute
+                background: #bab8b3
+                transform: translateX(-5px)
+    .normal-sign 
+        input 
+            width: 90%
+            padding: 15px 10px
+            border: 1px solid #bab8b3
+            outline-color: help.$primary    
+            font-size: .9rem
+        
+        ::placeholder 
+            font-size: .9rem
+        
+        button 
+            @extend .google__sign
+            background: #000
+            color: #fff !important
+            &:hover 
+                background: #111
+    
+    .forgot-btn 
+        button 
+            @extend .google__sign 
+            background: #fff
+            color: #000
+            &:hover 
+                background: #e6e2d8
+                border: none
+    .user-sign
+        padding-top: 30px 
+        font-size: 1rem
+        color: grey
+        text-align: left
+        
 // media query mixin calling 
 @media (max-width: 558px)
     .form

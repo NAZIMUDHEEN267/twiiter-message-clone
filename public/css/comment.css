@@ -626,7 +626,7 @@ li {
   background: #fff;
 }
 .comment-page .comment .gif-block .gif__images::-webkit-scrollbar-thumb {
-  background: red;
+  background: blue;
 }
 @media (max-width: 768px) {
   .comment-page .comment .gif-block .gif__images {
@@ -767,8 +767,8 @@ li {
   margin: auto;
 }
 
-.login-page {
-  background: rgba(0, 0, 0, 0.3);
+body {
+  background: rgba(0, 0, 0, 0.2);
   min-height: 100vh;
   display: flex;
   align-items: center;
@@ -776,7 +776,8 @@ li {
   margin: 0;
   box-sizing: border-box;
 }
-.login-page .form {
+
+.form {
   width: 550px;
   max-width: 600px;
   margin: auto;
@@ -791,44 +792,45 @@ li {
   z-index: 2;
   overflow-x: hidden;
 }
-.login-page .form .form__header {
+.form .form__header {
   width: 100%;
   display: flex;
 }
-.login-page .form .form__header .cross {
+.form .form__header .cross {
   width: 50%;
   align-self: stretch;
 }
-.login-page .form .form__header .cross span {
+.form .form__header .cross span {
   padding: 5px 8px;
   border-radius: 50%;
   cursor: pointer;
   font-size: 1.2rem;
   font-weight: 500;
 }
-.login-page .form .form__header .cross span:hover {
+.form .form__header .cross span:hover {
   background: rgba(0, 0, 0, 0.2);
 }
-.login-page .form .form__header .form__logo > img {
+.form .form__header .form__logo > img {
   height: 28px;
   width: 23px;
   object-fit: cover;
 }
-.login-page .form main {
+
+main {
   text-align: center;
   overflow: scroll;
   width: 100%;
 }
-.login-page .form main .form__text {
+main .form__text {
   margin: 5px 0px;
 }
-.login-page .form main .sign-box {
+main .sign-box {
   padding: 15px 5px 5px;
   min-height: 60vh;
   width: 250px;
   margin: auto;
 }
-.login-page .form main .sign-box .google__sign, .login-page .form main .sign-box .forgot-btn button, .login-page .form main .forgot-btn .sign-box button, .login-page .form main .sign-box .normal-sign button, .login-page .form main .normal-sign .sign-box button, .login-page .form main .sign-box .apple__sign {
+main .sign-box .google__sign, main .sign-box .forgot-btn button, main .forgot-btn .sign-box button, main .sign-box .normal-sign button, main .normal-sign .sign-box button, main .sign-box .apple__sign {
   height: 40px;
   border: 1px solid rgba(99, 95, 95, 0.4);
   width: 100%;
@@ -841,27 +843,27 @@ li {
   font-weight: 600;
   cursor: pointer;
 }
-.login-page .form main .sign-box .google__sign img, .login-page .form main .sign-box .forgot-btn button img, .login-page .form main .forgot-btn .sign-box button img, .login-page .form main .sign-box .normal-sign button img, .login-page .form main .normal-sign .sign-box button img, .login-page .form main .sign-box .apple__sign img {
+main .sign-box .google__sign img, main .sign-box .forgot-btn button img, main .forgot-btn .sign-box button img, main .sign-box .normal-sign button img, main .normal-sign .sign-box button img, main .sign-box .apple__sign img {
   width: 20px;
   margin-right: 4px;
 }
-.login-page .form main .sign-box .google__sign, .login-page .form main .sign-box .forgot-btn button, .login-page .form main .forgot-btn .sign-box button, .login-page .form main .sign-box .normal-sign button, .login-page .form main .normal-sign .sign-box button {
+main .sign-box .google__sign, main .sign-box .forgot-btn button, main .forgot-btn .sign-box button, main .sign-box .normal-sign button, main .normal-sign .sign-box button {
   color: rgba(99, 95, 95, 0.7);
 }
-.login-page .form main .sign-box .apple__sign {
+main .sign-box .apple__sign {
   color: initial;
   position: relative;
 }
-.login-page .form main .sign-box .apple__sign:hover {
+main .sign-box .apple__sign:hover {
   background: #e6e2d8;
 }
-.login-page .form main .sign-box .bottom-text {
+main .sign-box .bottom-text {
   position: relative;
   margin: 10px;
   font-weight: 600;
   letter-spacing: 0.4px;
 }
-.login-page .form main .sign-box .bottom-text::after {
+main .sign-box .bottom-text::after {
   content: "";
   position: absolute;
   height: 1px;
@@ -871,7 +873,7 @@ li {
   background: #bab8b3;
   transform: translateX(5px);
 }
-.login-page .form main .sign-box .bottom-text::before {
+main .sign-box .bottom-text::before {
   content: "";
   height: 1px;
   width: 45%;
@@ -881,32 +883,32 @@ li {
   background: #bab8b3;
   transform: translateX(-5px);
 }
-.login-page .form main .normal-sign input {
+main .normal-sign input {
   width: 90%;
   padding: 15px 10px;
   border: 1px solid #bab8b3;
   outline-color: #0878a1;
   font-size: 0.9rem;
 }
-.login-page .form main .normal-sign ::placeholder {
+main .normal-sign ::placeholder {
   font-size: 0.9rem;
 }
-.login-page .form main .normal-sign button {
+main .normal-sign button {
   background: #000;
   color: #fff !important;
 }
-.login-page .form main .normal-sign button:hover {
+main .normal-sign button:hover {
   background: #111;
 }
-.login-page .form main .forgot-btn button {
+main .forgot-btn button {
   background: #fff;
   color: #000;
 }
-.login-page .form main .forgot-btn button:hover {
+main .forgot-btn button:hover {
   background: #e6e2d8;
   border: none;
 }
-.login-page .form main .user-sign {
+main .user-sign {
   padding-top: 30px;
   font-size: 1rem;
   color: grey;

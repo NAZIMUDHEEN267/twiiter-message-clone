@@ -9,9 +9,17 @@ html(lang="en")
         //- favicon icon 
         <link rel="icon" href="Assets/twitter-title.png" type="image/gif" sizes="1x1">
 
-        //- font awesome link
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-        
+        //- css link
+        block css
+
         //- title
         title Twitter
     body
+        //- form section
+        section.form 
+            header.form__header 
+                .cross 
+                    span &#10005;
+                .form__logo
+                    img(src="Assets/twitter-logo.png" width="50px")
+            block content

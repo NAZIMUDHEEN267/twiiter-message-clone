@@ -1,9 +1,0 @@
-{
-    "version": 3,
-    "mappings": "AACA,IAAI,CAAJ,iCAAI,GACJ,IAAI,CAAJ,0CAAI,GACJ,IAAI,CAAJ,0BAAI,GACJ,IAAI,CAAJ,iCAAI",
-    "sources": [
-        "comment.sass"
-    ],
-    "names": [],
-    "file": "comment.css"
-}

@@ -21,13 +21,13 @@ module.exports = function (grunt) {
         files: [
           {
             expand: true,
-            cwd: 'public/build/css',
-            src: ['main.min.css'],
+            cwd: 'public/build/css/copy',
+            src: ['*.css'],
             dest: 'public/build/css/',
             ext: '.min.css',
           },
         ],
-      },
+      }
     },
 
     // js minification task
@@ -36,9 +36,10 @@ module.exports = function (grunt) {
         files: [
           {
             expand: true,
-            cwd: 'public/build/js',
-            src: 'main.min.js',
+            cwd: 'public/build/js/',
+            src: '*.js',
             dest: 'public/build/js/',
+            ext: '.min.js',
           },
         ],
       },
@@ -56,11 +57,33 @@ module.exports = function (grunt) {
     concat: {
       dist1: {
         src: 'public/javascript/comment/*.js',
-        dest: 'public/build/js/main.min.js',
+        dest: 'public/build/js/comment.min.js',
       },
-      dist2: {
-        src: ['public/css/*.css', '!.css.map'],
-        dest: 'public/build/css/main.min.css',
+    },
+
+    copy: {
+      main: {
+        files: [
+          {
+            expand: true,
+            cwd: 'public/css/',
+            src: ['comment.css', 'login.css', 'sign-up.css', '!.css.map'],
+            dest: 'public/build/css/copy',
+          },
+        ],
+      },
+    },
+
+    // image minification
+    imagemin: {
+      static: {
+        options: {
+          optimizationLevel: 3,
+          svgoPlugins: [{ removeViewBox: false }],
+        },
+        files: {
+          'public/Assets/copy/': 'public/Assets/0.jpg',
+        },
       },
     },
 
@@ -73,7 +96,7 @@ module.exports = function (grunt) {
 
       uglify: {
         files: [
-          'public/build/js/main.min.js',
+          'public/build/js/*js',
         ],
         tasks: ['uglify'],
       },
@@ -88,8 +111,12 @@ module.exports = function (grunt) {
         tasks: ['eslint'],
       },
       concat: {
-        files: ['public/javascript/comment/*.js', 'public/css/*.css', '!.css.map'],
+        files: ['public/javascript/comment/*.js'],
         tasks: ['concat'],
+      },
+      imagemin: {
+        files: ['public/Assets/*.jpg'],
+        tasks: ['imagemin'],
       },
     },
   });
@@ -100,6 +127,8 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-concat');
+  grunt.loadNpmTasks('grunt-contrib-copy');
+  grunt.loadNpmTasks('grunt-contrib-imagemin');
   grunt.loadNpmTasks('grunt-eslint');
 
   // register task to grunt
@@ -109,5 +138,7 @@ module.exports = function (grunt) {
     'watch:sass',
     'watch:eslint',
     'watch:concat',
+    'watch:copy',
+    'watch:imagemin',
   ]);
 };

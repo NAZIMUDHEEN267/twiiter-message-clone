@@ -14,13 +14,13 @@ function loadImage(imgSize, length) {
   for (let i = 1; i <= length; i += 2) {
     imgList += `
         <div class="images">
-        ${console.log(imgSize[i].images.fixed_width.url)}
           <img src="${imgSize[i].images.fixed_width.url}"/>
           <img src="${imgSize[i + 1].images.fixed_width.url}"/>
         </div>
         `;
   }
   gif.innerHTML = imgList;
+  gif.removeChild(gif.childNodes[0]);
 }
 
 // using ajax request for default gif box
@@ -30,7 +30,7 @@ xhr.onreadystatechange = function () {
   if (this.readyState == 4 && this.status == 200) {
     const response = this.responseText;
     const apiData = JSON.parse(response);
-    loadImage(apiData.data, 1);
+    loadImage(apiData.data, 7);
 
     showBtn.addEventListener('click', () => {
       showClicked = true;
