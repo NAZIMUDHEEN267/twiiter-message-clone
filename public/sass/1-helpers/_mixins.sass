@@ -10,9 +10,10 @@
     left: 0
     background-color: lighten(var.$text-grey, 50)    
 
+// for page styling, if parameter equal 'form' then that should be rendering form, otherwise the style for comment page
 @mixin page ($param)
     @if $param == 'form'
-        background: rgba(0,0,0,0.2)
+        background: rgba(0,0,0,0.4)
         min-height: 100vh
         display: flex
         align-items: center
@@ -24,7 +25,7 @@
         scroll-behavior: smooth
         min-height: 100vh
 
-// media queries 
+// media queries, when user view the site different devices, the site style will be different for that devices
 @mixin media-desk 
     @media (max-width: var.$desktop)
         @content
@@ -53,6 +54,7 @@
     text-transform: capitalize
     font-size: 12px
 
+
 // used for 2 form pages sign-up, login
 @mixin form 
     body
@@ -60,10 +62,10 @@
 
     // form section 
     .form
-        width: 550px
+        width: 600px
         max-width: 600px
         margin: auto
-        height: 80vh
+        height: 90vh
         background: var.$white
         display: flex
         flex-direction: column
@@ -73,6 +75,11 @@
         border-radius: 20px
         z-index: 2
         overflow-x: hidden
+
+        // media query for form
+        @media screen and (max-width: 600px)
+            height: 100vh  
+            border-radius: 0 
 
         .form__header 
             width: 100%

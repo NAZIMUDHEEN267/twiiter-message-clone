@@ -66,20 +66,22 @@ html(lang="en")
       //- page is the parent container
       .page
         .overlay#js-overlay
+
         //- post section
         section.post
           .post__img
-            img(src="Assets/post.jpeg", alt="post.jpg")
+            img(src="Assets/post.jpg", alt="post.jpg")
           //- calling post-info mixin
           +post-info("string")
         //- side bar for post information like, comments 
+
         aside.side#js-side
           //- header section
           header.header#js-header
             .sign-bar 
               .sign-bar__container 
                 a(href="/login" class="login-cta login-cta_color") Log in 
-                a(href="/sign-in" class="sign-in-cta sign-in-cta_color") Sign up
+                a(href="/sign-up" class="sign-in-cta sign-in-cta_color") Sign up
             //- user details 
             .user
               .user__details
@@ -101,7 +103,7 @@ html(lang="en")
                   p View hidden replies
             
           .side__img
-            img(src="Assets/post.jpeg", alt="post.jpg")
+            img(src="Assets/post.jpg", alt="post.jpg")
             
           .side__text
             p

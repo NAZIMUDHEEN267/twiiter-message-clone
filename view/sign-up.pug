@@ -1,4 +1,63 @@
+//- layout page code
 extends layout
 
+//- sign-up page css link
 block css 
-    link(rel="stylesheet", href="build/css/login.min.css")
+    link(rel="stylesheet", href="build/css/sign-up.min.css")
+
+//- main content in sign-up
+block content 
+    main.sign-up
+        //- headline text 
+        h2.sign-up__text 
+            | create your account
+
+        form(action="/sign-up", method="post" id="form")
+            .form__input
+                p Name 
+                input(type="text", name="username" autocomplete="off" maxlength="50")
+
+            .form__input
+                p Phone 
+                input(type="tel", name="phone" autocomplete="off")
+
+            .form__input(hidden="true")
+                p email
+                input(type="email", name="email" autocomplete="off")
+
+            //- changing email/phone input
+            p.sign-up__change-input Use <span id="js-change-input">email</span> instead 
+        
+            //- description for birth-date
+            h4.headline-birth Date of birth
+            p.headline-description
+                | This will not be shown publicly. Confirm your own age, even if this account is for a business, a pet, or something else.
+
+                
+            .birth-choose 
+
+                .dd 
+                    p day
+                    select(name="dd" class="day")
+                        option(value="")
+                        -for(let i = 1; i <= 31; i++)
+                            option= i
+
+                .yyyy
+                    p year
+                    select(name="yyyy" class="year")
+                        option(value="")
+                        -for(let i=1980; i<= 2006; i++)
+                            option= i
+                .mm
+                    p month
+                    select(name="mm" class="month")
+                        option(value="")
+                        -const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+                        -for(let i=0; i<months.length; i++)
+                            option= months[i]
+
+
+        button(type="submit" form="form" class="submit") next   
+
+    script(src="javascript/sign-up/sign-up.js") 

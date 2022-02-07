@@ -1,0 +1,116 @@
+
+@use '../3-base/typography' as text 
+@use '../3-base/links' as link 
+@use '../3-base/global' as global 
+@use '../1-helpers/1-helper' as help 
+
+// including page and form structure style 
+@include help.form 
+
+// main section for sig-up
+.sign-up    
+    overflow: hidden 
+    width: 100%
+    height: 100% 
+
+    &__text 
+        text-align: left
+        font-weight: 600
+        line-height: 3
+        color: #111
+
+        &::first-letter 
+            text-transform: capitalize
+    
+    // form styling
+    form
+        // for javascript click event
+        .js-form__input
+            border: 2px solid help.$primary
+
+        .form__input 
+            border: 1px solid #bab1b1
+            margin: 1.5rem 0
+
+            p 
+                margin-left: 10px 
+                font-size: 1rem 
+                margin-top: 5px
+                color: grey
+                transition: ease-in 3s 3s
+                transform: translateY(10px)
+
+            // when user click the '.form__name' javascript will show this class 
+            .js-p
+                font-size: .7rem 
+                transform: translateY(0px)
+                
+            input
+                padding: 0 10px 10px
+                width: 100%
+                border: none
+                outline: none
+                font-size: 1rem
+
+    // input change link styling    
+    &__change-input 
+        color: help.$primary
+        margin: 1rem 0
+        font-size: .9rem
+        padding: 1rem 0
+        cursor: pointer
+        
+        &:hover 
+            text-decoration: underline
+
+    // birth-date description 
+    .headline-birth     
+        color: #222
+        line-height: 1.2rem
+
+    .headline-description
+        font-size: .9rem
+        color: grey
+
+    .birth-choose
+        display: flex 
+        padding: 1.3rem 0 
+
+        // loop for dd, mm, yyyy
+        @for $i from 1 through 3
+            :nth-child(#{$i})
+                flex: $i 
+
+                :nth-child(2)
+                    width: 100%
+                    background: help.$white
+                    border: none
+                    outline: none
+
+                    > * :hover 
+                        background: lighten(help.$primary, 30)
+        
+        .dd, .mm, .yyyy 
+            border: 1px solid #ccc9c0
+            margin-left: 10px 
+            padding: 4px
+
+            p 
+                color: #888
+                font-size: .9rem
+
+        
+    .submit     
+        width: 100%
+        padding: 15px
+        border-radius: 20px
+        border: none
+        outline: none
+        background: #999
+        color: white
+        font-weight: 600
+        cursor: pointer
+        pointer-event: none
+        margin-top: 10px
+        text-transform: capitalize
+

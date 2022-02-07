@@ -1,12 +1,15 @@
 
+//- layout page code 
 extends layout
 
+//- adding login css link 
 block css 
     link(rel="stylesheet", href="build/css/login.min.css")
 
+//- main content for login page 
 block content    
-    main
-        .form__text
+    main.login
+        .login__text
             h2 Sign in to Twitter
         .sign-box 
             .google__sign 

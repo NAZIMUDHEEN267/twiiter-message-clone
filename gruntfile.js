@@ -76,15 +76,14 @@ module.exports = function (grunt) {
 
     // image minification
     imagemin: {
-      static: {
-        options: {
-          optimizationLevel: 3,
-          svgoPlugins: [{ removeViewBox: false }],
-        },
-        files: {
-          'public/Assets/copy/': 'public/Assets/0.jpg',
-        },
-      },
+      dynamic: {
+        files: [{
+          cwd: 'public/Assets/',
+          expand: true,
+          src: ['*.{png,jpg,gif}'],
+          dest: 'public/Assets/copy/'
+        }]
+      }
     },
 
     // watch task
