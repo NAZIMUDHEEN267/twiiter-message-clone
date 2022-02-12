@@ -13,20 +13,20 @@ block content
             | create your account
 
         form(action="/sign-up", method="post" id="form")
-            .form__input
+            .form__input#js-border
                 p Name 
                 input(type="text", name="username" autocomplete="off" maxlength="50")
 
-            .form__input
+            .form__input(class="js-change-one" id="js-border")
                 p Phone 
-                input(type="tel", name="phone" autocomplete="off")
+                input(type="tel", name="phone" autocomplete="off" id="js-phone")
 
-            .form__input(hidden="true")
-                p email
-                input(type="email", name="email" autocomplete="off")
+            .form__input(hidden="true" class="js-change-two" id="js-border")
+                p Email
+                input(type="email", name="email" autocomplete="off" id="js-email")
 
             //- changing email/phone input
-            p.sign-up__change-input Use <span id="js-change-input">email</span> instead 
+            p.sign-up__change-input#js-change-link Use <span id="js-change-input">email</span> instead 
         
             //- description for birth-date
             h4.headline-birth Date of birth
@@ -36,24 +36,25 @@ block content
                 
             .birth-choose 
 
-                .dd 
+                .dd#js-border
                     p day
                     select(name="dd" class="day")
                         option(value="")
                         -for(let i = 1; i <= 31; i++)
                             option= i
 
-                .yyyy
+                .yyyy#js-border
                     p year
                     select(name="yyyy" class="year")
                         option(value="")
                         -for(let i=1980; i<= 2006; i++)
                             option= i
-                .mm
+
+                .mm#js-border
                     p month
                     select(name="mm" class="month")
                         option(value="")
-                        -const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+                        -const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
                         -for(let i=0; i<months.length; i++)
                             option= months[i]
 

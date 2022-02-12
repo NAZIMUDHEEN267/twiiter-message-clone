@@ -199,18 +199,23 @@ body {
 .sign-up form .form__input {
   border: 1px solid #bab1b1;
   margin: 1.5rem 0;
+  border-radius: 3px;
+  cursor: pointer;
 }
 .sign-up form .form__input p {
   margin-left: 10px;
   font-size: 1rem;
   margin-top: 5px;
   color: grey;
-  transition: ease-in 3s 3s;
+  transition: ease-in 50ms 50ms;
   transform: translateY(10px);
 }
 .sign-up form .form__input .js-p {
-  font-size: 0.7rem;
+  font-size: 0.9rem;
+  letter-spacing: 1.1px;
+  padding-bottom: 1px;
   transform: translateY(0px);
+  color: #0878a1;
 }
 .sign-up form .form__input input {
   padding: 0 10px 10px;
@@ -225,6 +230,13 @@ body {
   font-size: 0.9rem;
   padding: 1rem 0;
   cursor: pointer;
+  display: inline-block;
+}
+.sign-up__change-input::selection {
+  background: transparent;
+}
+.sign-up__change-input span::selection {
+  background: transparent;
 }
 .sign-up__change-input:hover {
   text-decoration: underline;
@@ -235,7 +247,7 @@ body {
 }
 .sign-up .headline-description {
   font-size: 0.9rem;
-  color: grey;
+  color: rgba(0, 0, 0, 0.7);
 }
 .sign-up .birth-choose {
   display: flex;
@@ -252,6 +264,7 @@ body {
 }
 .sign-up .birth-choose :nth-child(1) :nth-child(2) > * :hover {
   background: #4cc8f6;
+  padding: 5px;
 }
 .sign-up .birth-choose :nth-child(2) {
   flex: 2;
@@ -264,6 +277,7 @@ body {
 }
 .sign-up .birth-choose :nth-child(2) :nth-child(2) > * :hover {
   background: #4cc8f6;
+  padding: 5px;
 }
 .sign-up .birth-choose :nth-child(3) {
   flex: 3;
@@ -276,14 +290,16 @@ body {
 }
 .sign-up .birth-choose :nth-child(3) :nth-child(2) > * :hover {
   background: #4cc8f6;
+  padding: 5px;
 }
 .sign-up .birth-choose .dd, .sign-up .birth-choose .mm, .sign-up .birth-choose .yyyy {
   border: 1px solid #ccc9c0;
   margin-left: 10px;
   padding: 4px;
+  border-radius: 4px;
 }
 .sign-up .birth-choose .dd p, .sign-up .birth-choose .mm p, .sign-up .birth-choose .yyyy p {
-  color: #888;
+  color: rgba(0, 0, 0, 0.7);
   font-size: 0.9rem;
 }
 .sign-up .submit {

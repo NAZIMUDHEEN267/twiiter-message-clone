@@ -31,19 +31,24 @@
         .form__input 
             border: 1px solid #bab1b1
             margin: 1.5rem 0
+            border-radius: 3px
+            cursor: pointer
 
             p 
                 margin-left: 10px 
                 font-size: 1rem 
                 margin-top: 5px
                 color: grey
-                transition: ease-in 3s 3s
+                transition: ease-in 50ms 50ms
                 transform: translateY(10px)
 
             // when user click the '.form__name' javascript will show this class 
             .js-p
-                font-size: .7rem 
+                font-size: .9rem
+                letter-spacing: 1.1px 
+                padding-bottom: 1px
                 transform: translateY(0px)
+                color: help.$primary
                 
             input
                 padding: 0 10px 10px
@@ -59,6 +64,13 @@
         font-size: .9rem
         padding: 1rem 0
         cursor: pointer
+        display: inline-block
+    
+        &::selection
+            background: transparent
+        
+        span::selection 
+            background: transparent
         
         &:hover 
             text-decoration: underline
@@ -70,7 +82,7 @@
 
     .headline-description
         font-size: .9rem
-        color: grey
+        color: rgba(0,0,0,0.7)
 
     .birth-choose
         display: flex 
@@ -89,17 +101,18 @@
 
                     > * :hover 
                         background: lighten(help.$primary, 30)
+                        padding: 5px
         
         .dd, .mm, .yyyy 
             border: 1px solid #ccc9c0
             margin-left: 10px 
             padding: 4px
+            border-radius: 4px
 
             p 
-                color: #888
+                color: rgba(0,0,0,0.7)
                 font-size: .9rem
 
-        
     .submit     
         width: 100%
         padding: 15px

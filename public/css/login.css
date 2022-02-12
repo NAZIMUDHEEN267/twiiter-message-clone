@@ -181,7 +181,6 @@ body {
 
 .login {
   text-align: center;
-  overflow: scroll;
   width: 100%;
 }
 .login .login__text {
@@ -190,11 +189,11 @@ body {
 .login .sign-box {
   padding: 15px 5px 5px;
   min-height: 60vh;
-  width: 250px;
+  max-width: 300px;
   margin: auto;
 }
 .login .sign-box .google__sign, .login .sign-box .forgot-btn button, .login .forgot-btn .sign-box button, .login .sign-box .normal-sign button, .login .normal-sign .sign-box button, .login .sign-box .apple__sign {
-  height: 40px;
+  height: 6vh;
   border: 1px solid rgba(99, 95, 95, 0.4);
   width: 100%;
   border-radius: 30px;

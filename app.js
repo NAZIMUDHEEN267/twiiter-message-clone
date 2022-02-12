@@ -6,7 +6,7 @@ const app = express();
 const path = require('path');
 
 // for delete copy css directory
-// fs.rmdir(path.join(`${__dirname}/public/build/css/copy`), { recursive: true }, (err) => console.log(err));
+fs.rmdir(path.join(`${__dirname}/public/build/css/copy`), { recursive: true }, (err) => console.log(err));
 
 // router path
 const login = require('./router/login');
